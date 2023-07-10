@@ -1,0 +1,37 @@
+<!-- Container Pagina Angajati -->
+<div class="container p-4">
+    <!-- H1 Titlu Pagina -->
+    <h1>
+        Employees
+    </h1>
+    <!-- Tabel Agajati -->
+    <table class="table table-light table-striped" *ngIf = "employees && employees.length > 0 ">
+        <!-- Head -->
+        <thead>
+            <tr>
+              <th scope="col">Id</th>
+              <th scope="col">Nume</th>
+              <th scope="col">Email</th>
+              <th scope="col">Telefon</th>
+              <th scope="col">Salariu</th>
+              <th scope="col">Departament</th>
+            </tr>
+        </thead>
+
+        <!-- Body -->
+        <tbody>
+            <tr *ngFor="let employee of employees" >
+              <td>{{employee.id}}</td>
+              <td>{{employee.name}}</td>
+              <td>{{employee.email}}</td>
+              <td>{{employee.phone}}</td>
+              <td>{{employee.salary}}</td>
+              <td>{{employee.department}}</td>
+            </tr>
+          </tbody>
+    </table>
+    <!-- If Daca Nu Exista Angajati -->
+    <p *ngIf = "!employees || employees.length <= 0">
+        No Emplyees Found
+    </p>
+</div>
