@@ -13,7 +13,20 @@ export class EmployeesService {
 
   constructor(private http: HttpClient) { }
 
+  // GET toti Angajatii din baza de date
   getAllEmployees(): Observable<Employee[]> {
+
+    // 
     return this.http.get<Employee[]>(this.baseApiURL + "/api/employees");
+  }
+
+  // POST un nou angajat in baza d date
+  addNewEmployee(addEmployeeRequest: Employee): Observable<Employee>{
+
+    // Initializare Guid Empty pentru fiecare angajat nou
+    addEmployeeRequest.id = "00000000-0000-0000-0000-000000000000"
+
+    // 
+    return this.http.post<Employee>(this.baseApiURL + "/api/employees", addEmployeeRequest);
   }
 }

@@ -1,9 +1,11 @@
 <!-- Container Pagina Angajati -->
 <div class="container p-4">
+    
     <!-- H1 Titlu Pagina -->
     <h1>
         Employees
     </h1>
+    
     <!-- Tabel Agajati -->
     <table class="table table-light table-striped" *ngIf = "employees && employees.length > 0 ">
         <!-- Head -->
@@ -30,6 +32,7 @@
             </tr>
           </tbody>
     </table>
+    
     <!-- If Daca Nu Exista Angajati -->
     <p *ngIf = "!employees || employees.length <= 0">
         No Emplyees Found

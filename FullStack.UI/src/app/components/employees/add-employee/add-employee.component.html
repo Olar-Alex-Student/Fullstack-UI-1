@@ -1,0 +1,76 @@
+<!-- Container Pagina Angajati -->
+<div class="container p-4">
+
+    <!-- H1 Titlu Pagina -->
+    <h1>
+        Adauga un angajat nou
+    </h1>
+
+    <!-- Form Pentru Adaugae Angajati -->
+    <form #form="ngForm" (ngSubmit)="addEmployee()">
+
+        <!-- Field Nume -->
+        <div class="mb-3">
+            <label for="name" class="form-label">Nume</label>
+            <input
+                type="text"
+                class="form-control"
+                id="name"
+                name = "name"
+                [(ngModel)] = "addEmployeeRequest.name"
+            >
+        </div>
+
+        <!-- Field Email -->
+        <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input 
+                type="text" 
+                class="form-control" 
+                id="email"
+                name = "email"
+                aria-describedby="emailHelp"
+                [(ngModel)] = "addEmployeeRequest.email"
+            >
+        </div>
+
+        <!-- Field Telefon -->
+        <div class="mb-3">
+            <label for="phone" class="form-label">Telefon</label>
+            <input 
+                type="text" 
+                class="form-control" 
+                id="phone"
+                name = "phone"
+                [(ngModel)] = "addEmployeeRequest.phone"
+            >
+        </div>
+
+        <!-- Field Salariu -->
+        <div class="mb-3">
+            <label for="salary" class="form-label">Salariu</label>
+            <input 
+                type="number" 
+                class="form-control" 
+                id="salary"
+                name = "salary"
+                [(ngModel)] = "addEmployeeRequest.salary"
+            >
+        </div>
+
+        <!-- Field Departamanet -->
+        <div class="mb-3">
+            <label for="department" class="form-label">Departament</label>
+            <input 
+                type="text" 
+                class="form-control" 
+                id="department"
+                name = "department"
+                [(ngModel)] = "addEmployeeRequest.department"
+            >
+        </div>
+
+        <!-- Buton Submit -->
+        <button type="submit" class="btn btn-dark">Submit</button>
+      </form>
+</div>
