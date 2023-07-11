@@ -1,4 +1,4 @@
-<!-- Container Pagina Angajati -->
+<!-- Container Pagina Editare Angajati -->
 <div class="container p-4">
 
     <!-- H1 Titlu Pagina -->
@@ -6,8 +6,8 @@
         Adauga un angajat nou
     </h1>
 
-    <!-- Form Pentru Adaugae Angajati -->
-    <form #form="ngForm" (ngSubmit)="addEmployee()">
+    <!-- Form Pentru Editare Angajati -->
+    <form #form="ngForm" (ngSubmit)="updateEmployee()">
 
         <!-- Field Nume -->
         <div class="mb-3">
@@ -17,7 +17,7 @@
                 class="form-control"
                 id="name"
                 name = "name"
-                [(ngModel)] = "addEmployeeRequest.name"
+                [(ngModel)] = "employeeDetails.name"
             >
         </div>
 
@@ -30,7 +30,7 @@
                 id="email"
                 name = "email"
                 aria-describedby="emailHelp"
-                [(ngModel)] = "addEmployeeRequest.email"
+                [(ngModel)] = "employeeDetails.email"
             >
         </div>
 
@@ -42,7 +42,7 @@
                 class="form-control" 
                 id="phone"
                 name = "phone"
-                [(ngModel)] = "addEmployeeRequest.phone"
+                [(ngModel)] = "employeeDetails.phone"
             >
         </div>
 
@@ -54,7 +54,7 @@
                 class="form-control" 
                 id="salary"
                 name = "salary"
-                [(ngModel)] = "addEmployeeRequest.salary"
+                [(ngModel)] = "employeeDetails.salary"
             >
         </div>
 
@@ -66,11 +66,17 @@
                 class="form-control" 
                 id="department"
                 name = "department"
-                [(ngModel)] = "addEmployeeRequest.department"
+                [(ngModel)] = "employeeDetails.department"
             >
         </div>
 
+        <div class="d-grid gap-2 d-md-flex justify-content-md-start">
         <!-- Buton Submit -->
-        <button type="submit" class="btn btn-success">Salveaza</button>
+        <button type="submit" class="btn btn-warning">Modifica</button>
+
+        <!-- Buton Delete -->
+        <button type="delete" class="btn btn-danger" (click)="deleteEmployee(employeeDetails.id)">Sterge</button>
+        </div>
+
       </form>
 </div>

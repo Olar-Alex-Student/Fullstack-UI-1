@@ -17,6 +17,7 @@
               <th scope="col">Telefon</th>
               <th scope="col">Salariu</th>
               <th scope="col">Departament</th>
+              <th> </th>
             </tr>
         </thead>
 
@@ -29,6 +30,7 @@
               <td>{{employee.phone}}</td>
               <td>{{employee.salary}}</td>
               <td>{{employee.department}}</td>
+              <td><a [routerLink]="['/employees','edit', employee.id]">View</a></td>
             </tr>
           </tbody>
     </table>

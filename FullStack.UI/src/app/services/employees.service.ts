@@ -20,7 +20,7 @@ export class EmployeesService {
     return this.http.get<Employee[]>(this.baseApiURL + "/api/employees");
   }
 
-  // POST un nou angajat in baza d date
+  // POST un nou angajat in baza de date
   addNewEmployee(addEmployeeRequest: Employee): Observable<Employee>{
 
     // Initializare Guid Empty pentru fiecare angajat nou
@@ -28,5 +28,26 @@ export class EmployeesService {
 
     // 
     return this.http.post<Employee>(this.baseApiURL + "/api/employees", addEmployeeRequest);
+  }
+
+  // GET un singur agajat
+  getEmployee(id: string): Observable<Employee>{
+
+    // 
+    return this.http.get<Employee>(this.baseApiURL + "/api/employees/" + id)
+  }
+
+  // PUT edit angajat
+  updateEmployee(id: string, updateEmployeeRequest: Employee ): Observable<Employee> {
+
+    // 
+    return this.http.put<Employee>(this.baseApiURL + "/api/employees/" + id, updateEmployeeRequest)
+  }
+
+  // DELTE angajat
+  deleteEmployee(id: string): Observable<Employee> {
+
+    // 
+    return this.http.delete<Employee>(this.baseApiURL + "/api/employees/" + id)
   }
 }
