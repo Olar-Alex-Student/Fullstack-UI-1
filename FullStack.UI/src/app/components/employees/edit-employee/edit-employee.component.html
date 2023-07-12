@@ -17,6 +17,8 @@
                 class="form-control"
                 id="name"
                 name = "name"
+                ngModel
+                #name = "ngModel"
                 [(ngModel)] = "employeeDetails.name"
             >
         </div>
@@ -30,6 +32,8 @@
                 id="email"
                 name = "email"
                 aria-describedby="emailHelp"
+                ngModel
+                #email = "ngModel"
                 [(ngModel)] = "employeeDetails.email"
             >
         </div>
@@ -42,6 +46,8 @@
                 class="form-control" 
                 id="phone"
                 name = "phone"
+                ngModel
+                #phone = "ngModel"
                 [(ngModel)] = "employeeDetails.phone"
             >
         </div>
@@ -54,6 +60,8 @@
                 class="form-control" 
                 id="salary"
                 name = "salary"
+                ngModel
+                #salary = "ngModel"
                 [(ngModel)] = "employeeDetails.salary"
             >
         </div>
@@ -66,16 +74,18 @@
                 class="form-control" 
                 id="department"
                 name = "department"
+                ngModel
+                #department = "ngModel"
                 [(ngModel)] = "employeeDetails.department"
             >
         </div>
 
         <div class="d-grid gap-2 d-md-flex justify-content-md-start">
-        <!-- Buton Submit -->
-        <button type="submit" class="btn btn-warning">Modifica</button>
+            <!-- Buton Submit -->
+            <button type="submit" class="btn btn-warning" (click)="console(form)">Modifica</button>
 
-        <!-- Buton Delete -->
-        <button type="delete" class="btn btn-danger" (click)="deleteEmployee(employeeDetails.id)">Sterge</button>
+            <!-- Buton Delete -->
+            <button type="delete" class="btn btn-danger" (click)="console(form)" (click)="deleteEmployee(employeeDetails.id)">Sterge</button>
         </div>
 
       </form>

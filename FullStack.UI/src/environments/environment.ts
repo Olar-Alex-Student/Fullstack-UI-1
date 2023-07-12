@@ -1,4 +1,9 @@
-export const environment = {
+type environment  = {
+    production: boolean;
+    apiUrl: string;
+}
+
+export const environment: environment = {
     production: true,
-    apiUrl: 'https://localhost:7090'
+    apiUrl: 'https://localhost:7090',
 };

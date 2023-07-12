@@ -2,6 +2,7 @@ import { Component, ElementRef, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Employee } from 'src/app/models/employee.model';
 import { EmployeesService } from 'src/app/services/employees.service';
+import { NgModel, NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-add-employee',
@@ -26,10 +27,12 @@ export class AddEmployeeComponent implements OnInit{
     
   }
 
+  //
   ngOnInit(): void {
     
   }
 
+  // Adaugare Angajat
   addEmployee() {
 
     // Post catre API la noul angajat
@@ -41,7 +44,7 @@ export class AddEmployeeComponent implements OnInit{
         this.router.navigate(["employees"])
 
         // Afisarea Rezulatului in consola
-        console.log(employee)
+        // console.log(employee)
       },
       error: (response) => {
 
@@ -51,5 +54,15 @@ export class AddEmployeeComponent implements OnInit{
         console.log(response)
       }
     });
+  }
+
+  // Afisarea in consola a ngForm si ngModel pt ADD
+  console(form: NgForm) {
+    console.log(form.value, form.valid);
+  }
+
+  // Functie de schimbare a input field nume
+  onNameChange($event: any) {
+    console.log($event)
   }
 }

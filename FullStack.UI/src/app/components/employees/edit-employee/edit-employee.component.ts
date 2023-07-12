@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { EmployeesService } from 'src/app/services/employees.service';
 import { Employee } from 'src/app/models/employee.model';
+import { NgModel, NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-edit-employee',
@@ -67,7 +68,7 @@ export class EditEmployeeComponent implements OnInit {
         this.router.navigate(["employees"])
 
         // Afisarea in consola a Raspunsului
-        console.log(response)
+        // console.log(response)
       },
       error: (response) => {
 
@@ -87,7 +88,7 @@ export class EditEmployeeComponent implements OnInit {
         this.router.navigate(["employees"])
         
         // Afisarea in consola a Raspunsului
-        console.log(response)
+        // console.log(response)
       },
       error: (response) => {
         
@@ -95,5 +96,10 @@ export class EditEmployeeComponent implements OnInit {
         console.log(response)
       }
     })
+  }
+
+  // Afisarea in consola a ngForm si ngModel pt PUT si DELETE
+  console(form: NgForm) {
+    console.log(form.value, form.valid);
   }
 }

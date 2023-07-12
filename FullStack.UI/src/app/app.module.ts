@@ -8,13 +8,17 @@ import { HttpClientModule } from '@angular/common/http';
 import { AddEmployeeComponent } from './components/employees/add-employee/add-employee.component';
 import { FormsModule } from '@angular/forms';
 import { EditEmployeeComponent } from './components/employees/edit-employee/edit-employee.component';
+import { LoginComponent } from './components/auth/login/login.component';
+import { RegisterComponent } from './components/auth/register/register.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     EmployeesListComponent,
     AddEmployeeComponent,
-    EditEmployeeComponent
+    EditEmployeeComponent,
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
