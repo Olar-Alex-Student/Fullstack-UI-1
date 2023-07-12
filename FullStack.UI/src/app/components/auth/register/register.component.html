@@ -1,1 +1,52 @@
-<p>register works!</p>
+<!-- Container Pagina Angajati -->
+<div class="container p-4">
+
+    <!-- H1 Titlu Pagina -->
+    <h1>
+        Creaza-ti un cont
+    </h1>
+
+    <!-- Formular Inscriere -->
+    <form #form="ngForm" (ngSubmit)="addUser()">
+
+        <!-- Label Nume -->
+        <div class="mb-3">
+            <label for="name" class="form-label">Nume</label>
+            <input 
+                type="text" 
+                class="form-control" 
+                id="name"
+                name = "name"
+                [(ngModel)] = "addUserRequest.name"
+            >
+        </div>
+
+        <!-- Label Email -->
+        <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input 
+                type="email" 
+                class="form-control" 
+                id="email" 
+                name = "email"
+                aria-describedby="emailHelp"
+                [(ngModel)] = "addUserRequest.email"
+            >
+        </div>
+
+        <!-- Label Parola -->
+        <div class="mb-3">
+            <label for="password" class="form-label">Parola</label>
+            <input 
+                type="password" 
+                class="form-control" 
+                id="password"
+                name = "password"
+                [(ngModel)] = "addUserRequest.password"
+            >
+        </div>
+
+        <!-- Buton Salvare -->
+        <button type="submit" class="btn btn-success">Creaza</button>
+    </form>
+</div>

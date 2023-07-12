@@ -4,19 +4,48 @@
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav">
 
-        <!-- Link Pt. Vizulaizare Angajati -->
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" routerLink="employees">Angajati</a>
-        </li>
+    <!--  -->
+    <div class="collapse navbar-collapse d-flex justify-content-between" id="navbarNav">
 
-        <!-- Link Pt. Aduagare Angajati -->
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" routerLink="employees/add">Adauga Angajati</a>
-        </li>
-      </ul>
+      <!-- Vizualizare Angajati si Utilizatori -->
+      <div>
+        <ul class="navbar-nav">
+
+          <!-- Link Pt. Vizulaizare Angajati -->
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" routerLink="employees">Angajati</a>
+          </li>
+
+          <!-- Link Pt. Aduagare Angajati -->
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" routerLink="employees/add">Adauga Angajati</a>
+          </li>
+
+          <!-- Link Pt. Lista Utilizator -->
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" routerLink="users">Utilizatori</a>
+          </li>
+
+        </ul>
+      </div>
+
+      <!-- Inregstrare / Conectare -->
+      <div>
+        <ul class="navbar-nav">
+
+          <!-- Link Pt. Inregistrare Pe Cont -->
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" routerLink="register">Inregistrare</a>
+          </li>
+
+          <!-- Link Pt. Conectare Pe Cont -->
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" routerLink="login">Conectare</a>
+          </li>
+
+        </ul>
+      </div>
     </div>
   </div>
 </nav>

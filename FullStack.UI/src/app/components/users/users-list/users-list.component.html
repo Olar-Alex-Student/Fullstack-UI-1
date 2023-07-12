@@ -1,0 +1,36 @@
+<!-- Container Pagina Angajati -->
+<div class="container p-4">
+    
+    <!-- H1 Titlu Pagina -->
+    <h1>
+        Utilizatori
+    </h1>
+    
+    <!-- Tabel Agajati -->
+    <table class="table table-light table-striped" *ngIf = "users && users.length > 0 ">
+        <!-- Head -->
+        <thead>
+            <tr>
+              <th scope="col">Id</th>
+              <th scope="col">Nume</th>
+              <th scope="col">Email</th>
+              <th> </th>
+            </tr>
+        </thead>
+
+        <!-- Body -->
+        <tbody>
+            <tr *ngFor="let user of users" >
+              <td>{{user.id}}</td>
+              <td>{{user.name}}</td>
+              <td>{{user.email}}</td>
+              <td><a [routerLink]="['/users','edit', user.id]">View</a></td>
+            </tr>
+          </tbody>
+    </table>
+    
+    <!-- If Daca Nu Exista Angajati -->
+    <p *ngIf = "!users || users.length <= 0">
+        Niciun utilizator gasit
+    </p>
+</div>

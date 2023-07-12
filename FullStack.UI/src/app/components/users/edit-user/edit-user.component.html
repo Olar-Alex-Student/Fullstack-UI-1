@@ -1,0 +1,64 @@
+<!-- Container Pagina Editare Angajati -->
+<div class="container p-4">
+
+    <!-- H1 Titlu Pagina -->
+    <h1>
+        Adauga un angajat nou
+    </h1>
+
+    <!-- Form Pentru Editare Angajati -->
+    <form #form="ngForm" (ngSubmit)="updateUser()">
+
+        <!-- Field Nume -->
+        <div class="mb-3">
+            <label for="name" class="form-label">Nume</label>
+            <input
+                type="text"
+                class="form-control"
+                id="name"
+                name = "name"
+                ngModel
+                #name = "ngModel"
+                [(ngModel)] = "userDetails.name"
+            >
+        </div>
+
+        <!-- Field Email -->
+        <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input 
+                type="text" 
+                class="form-control" 
+                id="email"
+                name = "email"
+                aria-describedby="emailHelp"
+                ngModel
+                #email = "ngModel"
+                [(ngModel)] = "userDetails.email"
+            >
+        </div>
+
+        <!-- Field Parola -->
+        <div class="mb-3">
+            <label for="password" class="form-label">Parola</label>
+            <input 
+                type="password" 
+                class="form-control" 
+                id="password"
+                name = "password"
+                ngModel
+                #phone = "ngModel"
+                [(ngModel)] = "userDetails.password"
+            >
+        </div>
+
+        <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+            <!-- Buton Submit -->
+            <button type="submit" class="btn btn-warning">Modifica</button>
+
+            <!-- Buton Delete -->
+            <button type="delete" class="btn btn-danger" (click)="deleteUser(userDetails.id)">Sterge</button>
+        </div>
+
+      </form>
+</div>
