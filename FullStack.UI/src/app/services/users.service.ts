@@ -50,4 +50,14 @@ export class UsersService {
     // 
     return this.http.delete<User>(this.baseApiURL + "/api/Users/" + id)
   }
+
+  getUserId(userIdRequest: User): Observable<User> {
+
+    // 
+    return this.http.get<User>(this.baseApiURL + "/api/Users/" + "login",
+    {params: {
+      "email": userIdRequest.email,
+      "password": userIdRequest.password
+    }})
+  }
 }

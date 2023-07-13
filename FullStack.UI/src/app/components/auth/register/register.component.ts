@@ -31,7 +31,7 @@ export class RegisterComponent implements OnInit {
   }
 
   // Adaugare Utilizator
-  addUser() {
+  register() {
     // Post catre API la noul utilizator
     this.userService.addNewUser(this.addUserRequest)
     .subscribe({
