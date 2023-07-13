@@ -35,6 +35,11 @@
                     Email-ul este necesar
                 </div>
 
+                <!-- Email invalid -->
+                <div *ngIf="prmEmail.errors?.['email']">
+                    Email invalid
+                </div>
+
             </div>
 
             <!-- Erori de validare Telefon -->
@@ -57,6 +62,21 @@
 
             </div>
 
+            <!-- Erori de validare Salar -->
+            <div *ngIf="salary.invalid && (salary.dirty || salary.touched)" class="alert alert-danger">
+
+                <!-- Salar nespecificat -->
+                <div *ngIf="salary.errors?.['required']">
+                    Salar este necesar
+                </div>
+
+                <!-- Salar < 3000 -->
+                <div *ngIf="salary.errors?.['min']">
+                    Salariul trebie sa fie minim de 3000 lei brut
+                </div>
+
+            </div>
+
             <!-- Erori de validare Departament -->
             <div *ngIf="department.invalid && (department.dirty || department.touched)" class="alert alert-danger">
 
@@ -66,6 +86,7 @@
                 </div>
 
             </div>
+
         </div>
 
         <!-- Field Nume -->
@@ -78,22 +99,22 @@
         <!-- Field Email -->
         <div class="mb-3">
             <label for="email" class="form-label">Email</label>
-            <input type="text" class="form-control" id="email" name="email" aria-describedby="emailHelp" ngModel ngModel
-                #email="ngModel" required [(ngModel)]="addEmployeeRequest.email">
+            <input type="email" class="form-control" id="email" name="email" ngModel #prmEmail="ngModel"
+                #email="ngModel" required [(ngModel)]="addEmployeeRequest.email" email="true">
         </div>
 
         <!-- Field Telefon -->
         <div class="mb-3">
             <label for="phone" class="form-label">Telefon</label>
-            <input type="text" class="form-control" id="phone" name="phone" ngModel required minlength="10" maxlength="10"
-                #phone="ngModel" [(ngModel)]="addEmployeeRequest.phone">
+            <input type="text" class="form-control" id="phone" name="phone" ngModel required minlength="10"
+                maxlength="10" #phone="ngModel" [(ngModel)]="addEmployeeRequest.phone">
         </div>
 
         <!-- Field Salariu -->
         <div class="mb-3">
             <label for="salary" class="form-label">Salariu</label>
-            <input type="number" class="form-control" id="salary" name="salary" ngModel #salary="ngModel"
-                [(ngModel)]="addEmployeeRequest.salary">
+            <input type="number" class="form-control" id="salary" name="salary" ngModel #salary="ngModel" required
+                min="3000" [(ngModel)]="addEmployeeRequest.salary">
         </div>
 
         <!-- Field Departamanet -->
@@ -101,6 +122,12 @@
             <label for="department" class="form-label">Departament</label>
             <input type="text" class="form-control" id="department" name="department" ngModel #department="ngModel"
                 required [(ngModel)]="addEmployeeRequest.department">
+        </div>
+
+        <!-- Field Avatar -->
+        <div class="mb-3">
+            <label for="department" class="form-label">Avatar</label>
+            <input type="image" class="form-control" width="48" height="48">
         </div>
 
         <!-- Buton Submit -->

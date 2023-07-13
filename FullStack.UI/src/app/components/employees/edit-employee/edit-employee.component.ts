@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { EmployeesService } from 'src/app/services/employees.service';
 import { Employee } from 'src/app/models/employee.model';
 import { NgModel, NgForm } from '@angular/forms';
+import { Validator } from '@angular/forms';
 
 @Component({
   selector: 'app-edit-employee',

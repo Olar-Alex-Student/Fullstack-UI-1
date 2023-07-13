@@ -12,12 +12,17 @@
         <!-- Validari -->
         <div class="validation">
 
-            <!-- Erori de validare Nume -->
+            <!-- Erori de validare Email -->
             <div *ngIf="email.invalid && (email.dirty || email.touched)" class="alert alert-danger">
 
-                <!-- Nume nespecificat -->
+                <!-- Email nespecificat -->
                 <div *ngIf="email.errors?.['required']">
-                    Numele este necesar
+                    Email-ul este necesar
+                </div>
+
+                <!-- Email invalid -->
+                <div *ngIf="prmEmail.errors?.['email']">
+                    Email invalid
                 </div>
 
             </div>
@@ -37,15 +42,15 @@
         <!-- Label Email -->
         <div class="form-group mb-3">
             <label for="email">Email</label>
-            <input type="text" class="form-control" id="email" name="email" ngModel #email="ngModel" required
-            [(ngModel)]="userIdRequest.email">
+            <input type="email" class="form-control" id="email" name="email" ngModel #prmEmail="ngModel"
+                #email="ngModel" required [(ngModel)]="userIdRequest.email" email="true">
         </div>
 
         <!-- Label Parola -->
         <div class="form-group mb-3">
             <label for="password">Parola</label>
             <input type="text" class="form-control" id="password" name="password" ngModel #password="ngModel" required
-            [(ngModel)]="userIdRequest.password">
+                [(ngModel)]="userIdRequest.password">
         </div>
 
         <!-- Buton Inregistrare -->

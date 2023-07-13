@@ -35,6 +35,11 @@
                     Email-ul este necesar
                 </div>
 
+                <!-- Email invalid -->
+                <div *ngIf="prmEmail.errors?.['email']">
+                    Email invalid
+                </div>
+
             </div>
 
             <!-- Erori de validare Telefon -->
@@ -57,6 +62,21 @@
 
             </div>
 
+            <!-- Erori de validare Salariu -->
+            <div *ngIf="salary.invalid" class="alert alert-danger">
+
+                <!-- Salariu nespecificat -->
+                <div *ngIf="salary.errors?.['required']">
+                    Salariul este necesar
+                </div>
+
+                <!-- Salariu < 3000 -->
+                <div *ngIf="salary.errors?.['min']">
+                    Salariul trebie sa fie minim de 3000 lei brut
+                </div>
+
+            </div>
+
             <!-- Erori de validare Departament -->
             <div *ngIf="department.invalid" class="alert alert-danger">
 
@@ -66,6 +86,7 @@
                 </div>
 
             </div>
+
         </div>
 
         <!-- Field Nume -->
@@ -78,8 +99,8 @@
         <!-- Field Email -->
         <div class="mb-3">
             <label for="email" class="form-label">Email</label>
-            <input type="text" class="form-control" id="email" name="email" aria-describedby="emailHelp" ngModel
-                #email="ngModel" required [(ngModel)]="employeeDetails.email">
+            <input type="email" class="form-control" id="email" name="email" ngModel #prmEmail="ngModel"
+                #email="ngModel" required [(ngModel)]="employeeDetails.email" email="true">
         </div>
 
         <!-- Field Telefon -->
@@ -93,7 +114,7 @@
         <div class="mb-3">
             <label for="salary" class="form-label">Salariu</label>
             <input type="number" class="form-control" id="salary" name="salary" ngModel #salary="ngModel" required
-                [(ngModel)]="employeeDetails.salary">
+                min="3000" [(ngModel)]="employeeDetails.salary">
         </div>
 
         <!-- Field Departamanet -->
@@ -105,7 +126,8 @@
 
         <div class="d-grid gap-2 d-md-flex justify-content-md-start">
             <!-- Buton Submit -->
-            <button type="submit" class="btn btn-warning" (click)="console(form)" [disabled]="!form.valid">Modifica</button>
+            <button type="submit" class="btn btn-warning" (click)="console(form)"
+                [disabled]="!form.valid">Modifica</button>
 
             <!-- Buton Delete -->
             <button type="delete" class="btn btn-danger" (click)="console(form)"

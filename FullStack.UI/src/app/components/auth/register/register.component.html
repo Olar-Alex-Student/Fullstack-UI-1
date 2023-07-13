@@ -35,6 +35,11 @@
                     Email-ul este necesar
                 </div>
 
+                <!-- Email invalid -->
+                <div *ngIf="prmEmail.errors?.['email']">
+                    Email invalid
+                </div>
+
             </div>
 
             <!-- Erori de validare Parola -->
@@ -57,27 +62,22 @@
         <!-- Label Nume -->
         <div class="mb-3">
             <label for="name" class="form-label">Nume</label>
-            <input 
-            type="text" class="form-control" id="name" name="name" ngModel #name="ngModel" required
-            [(ngModel)]="addUserRequest.name" minlength="3">
+            <input type="text" class="form-control" id="name" name="name" ngModel #name="ngModel" required
+                [(ngModel)]="addUserRequest.name" minlength="3">
         </div>
 
         <!-- Label Email -->
         <div class="mb-3">
             <label for="email" class="form-label">Email</label>
-            <input 
-            type="email" class="form-control" id="email" name="email" ngModel #email="ngModel" required
-            [(ngModel)]="addUserRequest.email"
-            >
+            <input type="email" class="form-control" id="email" name="email" ngModel #prmEmail="ngModel"
+                #email="ngModel" required [(ngModel)]="addUserRequest.email" email="true">
         </div>
 
         <!-- Label Parola -->
         <div class="mb-3">
             <label for="password" class="form-label">Parola</label>
-            <input 
-            type="password" class="form-control" id="password" name="password" ngModel #password="ngModel" required
-            [(ngModel)]="addUserRequest.password" minlength="10"
-            >
+            <input type="password" class="form-control" id="password" name="password" ngModel #password="ngModel"
+                required [(ngModel)]="addUserRequest.password" minlength="10">
         </div>
 
         <!-- Buton Salvare -->
