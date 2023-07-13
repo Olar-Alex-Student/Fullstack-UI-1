@@ -3,38 +3,53 @@
 
     <!-- H1 Titlu Pagina -->
     <h1>
-        Inreistreaza-te
+        Conecteaza-te
     </h1>
 
     <!-- Formular Inscriere -->
     <form #form="ngForm" (ngSubmit)="login()">
-        
+
+        <!-- Validari -->
+        <div class="validation">
+
+            <!-- Erori de validare Nume -->
+            <div *ngIf="email.invalid && (email.dirty || email.touched)" class="alert alert-danger">
+
+                <!-- Nume nespecificat -->
+                <div *ngIf="email.errors?.['required']">
+                    Numele este necesar
+                </div>
+
+            </div>
+
+            <!-- Erori de validare Parola -->
+            <div *ngIf="password.invalid && (password.dirty || password.touched)" class="alert alert-danger">
+
+                <!-- Parola nespecificata -->
+                <div *ngIf="password.errors?.['required']">
+                    Parola este necesara
+                </div>
+
+            </div>
+
+        </div>
+
         <!-- Label Email -->
         <div class="form-group mb-3">
             <label for="email">Email</label>
-            <input 
-                type="email" 
-                class="form-control" 
-                id="email" 
-                aria-describedby="emailHelp"
-                name="email"
-                [(ngModel)] = "userIdRequest.email"
-            >
+            <input type="text" class="form-control" id="email" name="email" ngModel #email="ngModel" required
+            [(ngModel)]="userIdRequest.email">
         </div>
 
         <!-- Label Parola -->
         <div class="form-group mb-3">
             <label for="password">Parola</label>
-            <input 
-                type="password" 
-                class="form-control" 
-                id="password"
-                name="password"
-                [(ngModel)] = "userIdRequest.password"
-            >
+            <input type="text" class="form-control" id="password" name="password" ngModel #password="ngModel" required
+            [(ngModel)]="userIdRequest.password">
         </div>
 
         <!-- Buton Inregistrare -->
-        <button type="submit" class="btn btn-success">Intregisreaza-te</button>
+        <button type="submit" class="btn btn-success" [disabled]="!form.valid">Intregisreaza-te</button>
+
     </form>
 </div>

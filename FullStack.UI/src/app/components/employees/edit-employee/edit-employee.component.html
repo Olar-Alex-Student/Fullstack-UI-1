@@ -9,84 +9,108 @@
     <!-- Form Pentru Editare Angajati -->
     <form #form="ngForm" (ngSubmit)="updateEmployee()">
 
+        <!-- Validari -->
+        <div class="validation">
+
+            <!-- Erori de validare Nume -->
+            <div *ngIf="name.invalid" class="alert alert-danger">
+
+                <!-- Nume nespecificat -->
+                <div *ngIf="name.errors?.['required']">
+                    Numele este necesar
+                </div>
+
+                <!-- Caractere nume < 3 -->
+                <div *ngIf="name.errors?.['minlength']">
+                    Numele trebuie sa aiba minim 3 caractere
+                </div>
+
+            </div>
+
+            <!-- Erori de validare Email -->
+            <div *ngIf="email.invalid" class="alert alert-danger">
+
+                <!-- Email nespecificat -->
+                <div *ngIf="email.errors?.['required']">
+                    Email-ul este necesar
+                </div>
+
+            </div>
+
+            <!-- Erori de validare Telefon -->
+            <div *ngIf="phone.invalid" class="alert alert-danger">
+
+                <!-- Telefon nespecificat -->
+                <div *ngIf="phone.errors?.['required']">
+                    Telefonul este necesar
+                </div>
+
+                <!-- Numere telefon < 10 -->
+                <div *ngIf="phone.errors?.['minlength']">
+                    Numarul de telefon trebuie sa aiba minim 10 numere
+                </div>
+
+                <!-- Numere telefon > 10 -->
+                <div *ngIf="phone.errors?.['maxlength']">
+                    Numarul de telefon trebuie sa aiba maxim 10 numere
+                </div>
+
+            </div>
+
+            <!-- Erori de validare Departament -->
+            <div *ngIf="department.invalid" class="alert alert-danger">
+
+                <!-- Departament nespecificat -->
+                <div *ngIf="department.errors?.['required']">
+                    Departamentul este necesar
+                </div>
+
+            </div>
+        </div>
+
         <!-- Field Nume -->
         <div class="mb-3">
             <label for="name" class="form-label">Nume</label>
-            <input
-                type="text"
-                class="form-control"
-                id="name"
-                name = "name"
-                ngModel
-                #name = "ngModel"
-                [(ngModel)] = "employeeDetails.name"
-            >
+            <input type="text" class="form-control" id="name" name="name" ngModel #name="ngModel" required minlength="3"
+                [(ngModel)]="employeeDetails.name">
         </div>
 
         <!-- Field Email -->
         <div class="mb-3">
             <label for="email" class="form-label">Email</label>
-            <input 
-                type="text" 
-                class="form-control" 
-                id="email"
-                name = "email"
-                aria-describedby="emailHelp"
-                ngModel
-                #email = "ngModel"
-                [(ngModel)] = "employeeDetails.email"
-            >
+            <input type="text" class="form-control" id="email" name="email" aria-describedby="emailHelp" ngModel
+                #email="ngModel" required [(ngModel)]="employeeDetails.email">
         </div>
 
         <!-- Field Telefon -->
         <div class="mb-3">
             <label for="phone" class="form-label">Telefon</label>
-            <input 
-                type="text" 
-                class="form-control" 
-                id="phone"
-                name = "phone"
-                ngModel
-                #phone = "ngModel"
-                [(ngModel)] = "employeeDetails.phone"
-            >
+            <input type="text" class="form-control" id="phone" name="phone" ngModel #phone="ngModel" required
+                minlength="10" maxlength="10" [(ngModel)]="employeeDetails.phone">
         </div>
 
         <!-- Field Salariu -->
         <div class="mb-3">
             <label for="salary" class="form-label">Salariu</label>
-            <input 
-                type="number" 
-                class="form-control" 
-                id="salary"
-                name = "salary"
-                ngModel
-                #salary = "ngModel"
-                [(ngModel)] = "employeeDetails.salary"
-            >
+            <input type="number" class="form-control" id="salary" name="salary" ngModel #salary="ngModel" required
+                [(ngModel)]="employeeDetails.salary">
         </div>
 
         <!-- Field Departamanet -->
         <div class="mb-3">
             <label for="department" class="form-label">Departament</label>
-            <input 
-                type="text" 
-                class="form-control" 
-                id="department"
-                name = "department"
-                ngModel
-                #department = "ngModel"
-                [(ngModel)] = "employeeDetails.department"
-            >
+            <input type="text" class="form-control" id="department" name="department" ngModel #department="ngModel"
+                required [(ngModel)]="employeeDetails.department">
         </div>
 
         <div class="d-grid gap-2 d-md-flex justify-content-md-start">
             <!-- Buton Submit -->
-            <button type="submit" class="btn btn-warning" (click)="console(form)">Modifica</button>
+            <button type="submit" class="btn btn-warning" (click)="console(form)" [disabled]="!form.valid">Modifica</button>
 
             <!-- Buton Delete -->
-            <button type="delete" class="btn btn-danger" (click)="console(form)" (click)="deleteEmployee(employeeDetails.id)">Sterge</button>
+            <button type="delete" class="btn btn-danger" (click)="console(form)"
+                (click)="deleteEmployee(employeeDetails.id)">Sterge</button>
         </div>
 
-      </form>
+    </form>
 </div>

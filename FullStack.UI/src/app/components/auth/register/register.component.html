@@ -3,34 +3,71 @@
 
     <!-- H1 Titlu Pagina -->
     <h1>
-        Creaza-ti un cont
+        Inregistreaza-ti un cont
     </h1>
 
     <!-- Formular Inscriere -->
     <form #form="ngForm" (ngSubmit)="register()">
 
+        <!-- Validari -->
+        <div class="validation">
+
+            <!-- Erori de validare Nume -->
+            <div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert alert-danger">
+
+                <!-- Nume nespecificat -->
+                <div *ngIf="name.errors?.['required']">
+                    Numele este necesar
+                </div>
+
+                <!-- Caractere nume < 3 -->
+                <div *ngIf="name.errors?.['minlength']">
+                    Numele trebuie sa aiba minim 3 caractere
+                </div>
+
+            </div>
+
+            <!-- Erori de validare Email -->
+            <div *ngIf="email.invalid && (email.dirty || email.touched)" class="alert alert-danger">
+
+                <!-- Email nespecificat -->
+                <div *ngIf="email.errors?.['required']">
+                    Email-ul este necesar
+                </div>
+
+            </div>
+
+            <!-- Erori de validare Parola -->
+            <div *ngIf="password.invalid && (password.dirty || password.touched)" class="alert alert-danger">
+
+                <!-- Parola nespecificata -->
+                <div *ngIf="password.errors?.['required']">
+                    Parola este necesara
+                </div>
+
+                <!-- Caractere parola < 8 -->
+                <div *ngIf="password.errors?.['minlength']">
+                    Parola trebuie sa aiba minim 8 caractere
+                </div>
+
+            </div>
+
+        </div>
+
         <!-- Label Nume -->
         <div class="mb-3">
             <label for="name" class="form-label">Nume</label>
             <input 
-                type="text" 
-                class="form-control" 
-                id="name"
-                name = "name"
-                [(ngModel)] = "addUserRequest.name"
-            >
+            type="text" class="form-control" id="name" name="name" ngModel #name="ngModel" required
+            [(ngModel)]="addUserRequest.name" minlength="3">
         </div>
 
         <!-- Label Email -->
         <div class="mb-3">
             <label for="email" class="form-label">Email</label>
             <input 
-                type="email" 
-                class="form-control" 
-                id="email" 
-                name = "email"
-                aria-describedby="emailHelp"
-                [(ngModel)] = "addUserRequest.email"
+            type="email" class="form-control" id="email" name="email" ngModel #email="ngModel" required
+            [(ngModel)]="addUserRequest.email"
             >
         </div>
 
@@ -38,15 +75,12 @@
         <div class="mb-3">
             <label for="password" class="form-label">Parola</label>
             <input 
-                type="password" 
-                class="form-control" 
-                id="password"
-                name = "password"
-                [(ngModel)] = "addUserRequest.password"
+            type="password" class="form-control" id="password" name="password" ngModel #password="ngModel" required
+            [(ngModel)]="addUserRequest.password" minlength="10"
             >
         </div>
 
         <!-- Buton Salvare -->
-        <button type="submit" class="btn btn-success">Creaza</button>
+        <button type="submit" class="btn btn-success" [disabled]="!form.valid">Creaza</button>
     </form>
 </div>

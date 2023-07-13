@@ -9,56 +9,79 @@
     <!-- Form Pentru Editare Angajati -->
     <form #form="ngForm" (ngSubmit)="updateUser()">
 
+        <!-- Validari -->
+        <div class="validation">
+            
+            <!-- Erori de validare Nume -->
+            <div *ngIf="name.invalid" class="alert alert-danger">
+
+                <!-- Nume nespecificat -->
+                <div *ngIf="name.errors?.['required']">
+                    Numele este necesar
+                </div>
+
+                <!-- Caractere nume < 3 -->
+                <div *ngIf="name.errors?.['minlength']">
+                    Numele trebuie sa aiba minim 3 caractere
+                </div>
+
+            </div>
+
+            <!-- Erori de validare Email -->
+            <div *ngIf="email.invalid" class="alert alert-danger">
+
+                <!-- Email nespecificat -->
+                <div *ngIf="email.errors?.['required']">
+                    Email-ul este necesar
+                </div>
+
+            </div>
+
+            <!-- Erori de validare Parola -->
+            <div *ngIf="password.invalid" class="alert alert-danger">
+
+                <!-- Parola nespecificat -->
+                <div *ngIf="password.errors?.['required']">
+                    Parola este necesara
+                </div>
+
+                <!-- caractere Parola < 8 -->
+                <div *ngIf="password.errors?.['minlength']">
+                    Numarul de caractere trebuie sa aiba minim 8 caractere
+                </div>
+
+            </div>
+
+        </div>
+
         <!-- Field Nume -->
         <div class="mb-3">
             <label for="name" class="form-label">Nume</label>
-            <input
-                type="text"
-                class="form-control"
-                id="name"
-                name = "name"
-                ngModel
-                #name = "ngModel"
-                [(ngModel)] = "userDetails.name"
-            >
+            <input type="text" class="form-control" id="name" name="name" ngModel #name="ngModel" required minlength="3"
+                [(ngModel)]="userDetails.name">
         </div>
 
         <!-- Field Email -->
         <div class="mb-3">
             <label for="email" class="form-label">Email</label>
-            <input 
-                type="text" 
-                class="form-control" 
-                id="email"
-                name = "email"
-                aria-describedby="emailHelp"
-                ngModel
-                #email = "ngModel"
-                [(ngModel)] = "userDetails.email"
-            >
+            <input type="text" class="form-control" id="email" name="email" aria-describedby="emailHelp" ngModel
+                #email="ngModel" required [(ngModel)]="userDetails.email">
         </div>
 
         <!-- Field Parola -->
         <div class="mb-3">
             <label for="password" class="form-label">Parola</label>
-            <input 
-                type="password" 
-                class="form-control" 
-                id="password"
-                name = "password"
-                ngModel
-                #phone = "ngModel"
-                [(ngModel)] = "userDetails.password"
-            >
+            <input type="password" class="form-control" id="password" name="password" ngModel #password="ngModel"
+                required minlength="8" [(ngModel)]="userDetails.password">
         </div>
 
         <div class="d-grid gap-2 d-md-flex justify-content-md-start">
             <!-- Buton Submit -->
-            <button type="submit" class="btn btn-warning">Modifica</button>
+            <button type="submit" class="btn btn-warning" [disabled]="!form.valid">Modifica</button>
 
             <!-- Buton Delete -->
             <button type="delete" class="btn btn-danger" (click)="deleteUser(userDetails.id)">Sterge</button>
         </div>
 
-      </form>
+    </form>
 </div>
