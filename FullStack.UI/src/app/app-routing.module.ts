@@ -7,6 +7,7 @@ import { RegisterComponent } from './components/auth/register/register.component
 import { UsersListComponent } from './components/users/users-list/users-list.component';
 import { EditUserComponent } from './components/users/edit-user/edit-user.component';
 import { LoginComponent } from './components/auth/login/login.component';
+import { LoginAuth0Component } from './components/auth/login-auth0/login-auth0.component';
 
 const routes: Routes = [
 
@@ -18,6 +19,10 @@ const routes: Routes = [
   {
     path: 'login',
     component: LoginComponent
+  },
+  {
+    path: 'login-auth0',
+    component: LoginAuth0Component
   },
 
   // Rute Utlizatori

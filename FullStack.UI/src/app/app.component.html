@@ -35,13 +35,18 @@
         <ul class="navbar-nav">
 
           <!-- Link Pt. Inregistrare Pe Cont -->
-          <li class="nav-item">
+          <!-- <li class="nav-item">
             <a class="nav-link active" aria-current="page" routerLink="register">Inregistrare</a>
-          </li>
+          </li> -->
 
-          <!-- Link Pt. Conectare Pe Cont -->
+          <!-- Link Pt. Conectare Pe Cont Cu Auth0 --> 
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" routerLink="login">Conectare</a>
+
+            <!-- Login Auth0 Buton -->
+            <app-login-auth0 *ngIf="(auth.isAuthenticated$ | async) == false"></app-login-auth0>
+
+            <!-- Logout Auth0 Buton -->
+            <app-logout-auth0 *ngIf="auth.isAuthenticated$ | async"></app-logout-auth0>
           </li>
 
         </ul>

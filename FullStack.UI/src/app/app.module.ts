@@ -17,6 +17,8 @@ import { EditUserComponent } from './components/users/edit-user/edit-user.compon
 import { AuthModule } from '@auth0/auth0-angular';
 import { AuthService } from '@auth0/auth0-angular';
 import { environment } from 'src/environments/environment';
+import { LoginAuth0Component } from './components/auth/login-auth0/login-auth0.component';
+import { LogoutAuth0Component } from './components/auth/logout-auth0/logout-auth0.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +30,8 @@ import { environment } from 'src/environments/environment';
     RegisterComponent,
     UsersListComponent,
     EditUserComponent,
+    LoginAuth0Component,
+    LogoutAuth0Component,
   ],
   imports: [
     BrowserModule,
