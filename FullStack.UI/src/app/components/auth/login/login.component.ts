@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { User } from 'src/app/models/user.model';
 import { Router } from '@angular/router';
 import { UsersService } from 'src/app/services/users.service';
 import { NgModel, NgForm } from '@angular/forms';
+import { AuthService } from '@auth0/auth0-angular';
 
 @Component({
   selector: 'app-login',
@@ -21,7 +22,7 @@ export class LoginComponent implements OnInit {
 };
 
   // 
-  constructor(private userService: UsersService, private router: Router) {
+  constructor(public auth: AuthService, private userService: UsersService, private router: Router) {
   }
 
   // 
@@ -49,5 +50,10 @@ export class LoginComponent implements OnInit {
         console.log(this.userIdRequest.password)
       }
     })
+  }
+
+  // Login Redirect Auth 0
+  loginWithRedirect(): void {
+    this.auth.loginWithRedirect();
   }
 }
