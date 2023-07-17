@@ -19,6 +19,8 @@ import { AuthService } from '@auth0/auth0-angular';
 import { environment } from 'src/environments/environment';
 import { LoginAuth0Component } from './components/auth/login-auth0/login-auth0.component';
 import { LogoutAuth0Component } from './components/auth/logout-auth0/logout-auth0.component';
+import { GetUserAuth0Component } from './components/users/get-user-auth0/get-user-auth0.component';
+import { GetUsersAuth0Component } from './components/users/get-users-auth0/get-users-auth0.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +34,8 @@ import { LogoutAuth0Component } from './components/auth/logout-auth0/logout-auth
     EditUserComponent,
     LoginAuth0Component,
     LogoutAuth0Component,
+    GetUserAuth0Component,
+    GetUsersAuth0Component,
   ],
   imports: [
     BrowserModule,
