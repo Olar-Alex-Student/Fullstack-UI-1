@@ -5,15 +5,18 @@ import { UsersService } from 'src/app/services/users.service';
 import { NgModel, NgForm } from '@angular/forms';
 import { AuthService } from '@auth0/auth0-angular';
 
+// import getToken
+import { GetTokenAuth0Component } from '../../auth0/get-token-auth0/get-token-auth0.component';
+
 @Component({
   selector: 'app-login-auth0',
   templateUrl: './login-auth0.component.html',
   styleUrls: ['./login-auth0.component.css']
 })
 export class LoginAuth0Component {
-  
+
   // 
-  constructor(public auth: AuthService, private userService: UsersService) {}
+  constructor(public auth: AuthService) { }
 
   // Login Redirect Auth 0
   loginWithRedirect(): void {

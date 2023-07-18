@@ -43,6 +43,9 @@
           <!-- Link Pt. Conectare Pe Cont Cu Auth0 -->
           <li class="nav-item">
 
+            <!-- Token Auth0 Button -->
+            <app-get-token-auth0></app-get-token-auth0>
+
             <!-- Login Auth0 Buton -->
             <app-login-auth0 *ngIf="(auth.isAuthenticated$ | async) == false"></app-login-auth0>
 
