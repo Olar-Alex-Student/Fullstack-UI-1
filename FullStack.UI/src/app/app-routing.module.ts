@@ -9,6 +9,9 @@ import { EditUserComponent } from './components/users/edit-user/edit-user.compon
 import { LoginComponent } from './components/auth/login/login.component';
 import { LoginAuth0Component } from './components/auth/login-auth0/login-auth0.component';
 
+// Auth0
+import { AuthGuard } from '@auth0/auth0-angular';
+
 const routes: Routes = [
 
   // Rute Autetificare / Coectare
@@ -28,25 +31,30 @@ const routes: Routes = [
   // Rute Utlizatori
   {
     path: 'users',
-    component: UsersListComponent
+    component: UsersListComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'users/edit/:id',
-    component: EditUserComponent
+    component: EditUserComponent,
+    canActivate: [AuthGuard]
   },
 
   // Rute Angajati
   {
     path: 'employees',
-    component: EmployeesListComponent
+    component: EmployeesListComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'employees/add',
-    component: AddEmployeeComponent
+    component: AddEmployeeComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'employees/edit/:id',
-    component: EditEmployeeComponent
+    component: EditEmployeeComponent,
+    canActivate: [AuthGuard]
   },
 ];
 

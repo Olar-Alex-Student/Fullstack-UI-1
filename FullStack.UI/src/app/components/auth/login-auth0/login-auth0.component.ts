@@ -13,13 +13,13 @@ import { AuthService } from '@auth0/auth0-angular';
 export class LoginAuth0Component {
   
   // 
-  constructor(public authService: AuthService) {}
+  constructor(public auth: AuthService, private userService: UsersService) {}
 
   // Login Redirect Auth 0
   loginWithRedirect(): void {
 
     // Prop de la Auth0 login cu redirect
-    this.authService.loginWithRedirect();
-  }
+    this.auth.loginWithRedirect();
 
+  }
 }

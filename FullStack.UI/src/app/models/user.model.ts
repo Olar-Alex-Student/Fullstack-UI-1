@@ -1,6 +1,9 @@
 export interface User {
-    id: string,
-    name: string,
     email: string,
-    password: string
-}
+    emailVerified: true,
+    name: string,
+    nickname: string,
+    picture: string,
+    userId: string,
+    username: string
+  }

@@ -38,19 +38,17 @@
             </div>
 
             <!-- Erori de validare Parola -->
-            <div *ngIf="password.invalid" class="alert alert-danger">
+            <!-- <div *ngIf="password.invalid" class="alert alert-danger">
 
-                <!-- Parola nespecificat -->
                 <div *ngIf="password.errors?.['required']">
                     Parola este necesara
                 </div>
 
-                <!-- caractere Parola < 8 -->
                 <div *ngIf="password.errors?.['minlength']">
                     Numarul de caractere trebuie sa aiba minim 8 caractere
                 </div>
 
-            </div>
+            </div> -->
 
         </div>
 
@@ -71,8 +69,8 @@
         <!-- Field Parola -->
         <div class="mb-3">
             <label for="password" class="form-label">Parola</label>
-            <input type="password" class="form-control" id="password" name="password" ngModel #password="ngModel"
-                required minlength="8" [(ngModel)]="userDetails.password">
+            <!-- <input type="password" class="form-control" id="password" name="password" ngModel #password="ngModel"
+                required minlength="8" [(ngModel)]="userDetails.password"> -->
         </div>
 
         <div class="d-grid gap-2 d-md-flex justify-content-md-start">
@@ -80,7 +78,7 @@
             <button type="submit" class="btn btn-warning" [disabled]="!form.valid">Modifica</button>
 
             <!-- Buton Delete -->
-            <button type="delete" class="btn btn-danger" (click)="deleteUser(userDetails.id)">Sterge</button>
+            <button type="delete" class="btn btn-danger" (click)="deleteUser(userDetails.userId)">Sterge</button>
         </div>
 
     </form>

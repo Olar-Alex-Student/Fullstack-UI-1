@@ -16,10 +16,13 @@ export class EditUserComponent implements OnInit {
   userDetails: User = {
 
     // Definirea parametrior stadard pentru un angajat
-    id: "",
-    name: "",
     email: "",
-    password: ""
+    emailVerified: true,
+    name: "",
+    nickname: "",
+    picture: "",
+    userId: "",
+    username: ""
   };
 
   // costructor cu variaile de rute
@@ -58,7 +61,7 @@ export class EditUserComponent implements OnInit {
 
   // Modifica Angajat
   updateUser() {
-    this.userService.updateUser(this.userDetails.id , this.userDetails)
+    this.userService.updateUser(this.userDetails.userId , this.userDetails)
     .subscribe({
       next: (response) => {
 

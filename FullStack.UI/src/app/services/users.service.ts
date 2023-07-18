@@ -21,13 +21,13 @@ export class UsersService {
   }
 
   // POST un nou angajat in baza de date
-  addNewUser(addUserRequest: User): Observable<User>{
+  addNewUser(user: any): Observable<any>{
 
     // Initializare Guid Empty pentru fiecare angajat nou
-    addUserRequest.id = "00000000-0000-0000-0000-000000000000"
+    // addUserRequest.id = "00000000-0000-0000-0000-000000000000"
 
     // 
-    return this.http.post<User>(this.baseApiURL + "/api/users", addUserRequest);
+    return this.http.post<User>(this.baseApiURL + "/api/users", user);
   }
 
   // GET un singur agajat
@@ -57,7 +57,7 @@ export class UsersService {
     return this.http.get<User>(this.baseApiURL + "/api/Users/" + "login",
     {params: {
       "email": userIdRequest.email,
-      "password": userIdRequest.password
+      //"password": userIdRequest.password
     }})
   }
 }

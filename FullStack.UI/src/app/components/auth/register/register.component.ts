@@ -11,42 +11,46 @@ import { NgModel, NgForm } from '@angular/forms';
 })
 export class RegisterComponent implements OnInit {
 
-  addUserRequest: User= {
+  addUserRequest: User = {
 
-      // Definirea parametrior stadard pentru un utilzator
-      id: "",
-      name: "",
-      email: "",
-      password: "",
+    // Definirea parametrior stadard pentru un utilzator
+    email: "",
+    emailVerified: true,
+    name: "",
+    nickname: "",
+    picture: "",
+    userId: "",
+    username: ""
+
   };
 
   // Creat de rute + utilizatori
   constructor(private userService: UsersService, private router: Router) {
-    
+
   }
 
   //
   ngOnInit(): void {
-    
+
   }
 
   // Adaugare Utilizator
   register() {
     // Post catre API la noul utilizator
     this.userService.addNewUser(this.addUserRequest)
-    .subscribe({
-      next: (user) => {
+      .subscribe({
+        next: (user) => {
 
-        //Redirectionare catre pagina cu toti utilizatoriis
-        this.router.navigate(["users"])
-      },
-      error: (response) => {
+          //Redirectionare catre pagina cu toti utilizatoriis
+          this.router.navigate(["users"])
+        },
+        error: (response) => {
 
-        // Afisarea de modal cu eroarea
+          // Afisarea de modal cu eroarea
 
-        // Afisarea Erorii in consola
-        console.log(response)
-      }
-    });
+          // Afisarea Erorii in consola
+          console.log(response)
+        }
+      });
   }
 }

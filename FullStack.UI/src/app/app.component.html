@@ -1,7 +1,8 @@
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
   <div class="container">
-    <a class="navbar-brand" routerLink="">Ecap</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <a class="navbar-brand" routerLink="">Glocal Soft</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
 
@@ -39,7 +40,7 @@
             <a class="nav-link active" aria-current="page" routerLink="register">Inregistrare</a>
           </li> -->
 
-          <!-- Link Pt. Conectare Pe Cont Cu Auth0 --> 
+          <!-- Link Pt. Conectare Pe Cont Cu Auth0 -->
           <li class="nav-item">
 
             <!-- Login Auth0 Buton -->
@@ -50,9 +51,21 @@
           </li>
 
         </ul>
+
       </div>
+
     </div>
+
   </div>
+
 </nav>
+
+<!-- Afisare mesaj cu bun venit -->
+
+<!-- <div class="container">
+  <div *ngIf="auth.user$ | async as user">
+    <h1>Welcome, {{ user.name }}</h1>
+  </div>
+</div> -->
 
 <router-outlet></router-outlet>

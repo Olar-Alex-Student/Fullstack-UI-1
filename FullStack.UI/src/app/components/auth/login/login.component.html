@@ -28,14 +28,14 @@
             </div>
 
             <!-- Erori de validare Parola -->
-            <div *ngIf="password.invalid && (password.dirty || password.touched)" class="alert alert-danger">
+            <!-- <div *ngIf="password.invalid && (password.dirty || password.touched)" class="alert alert-danger">
 
-                <!-- Parola nespecificata -->
+                
                 <div *ngIf="password.errors?.['required']">
                     Parola este necesara
                 </div>
 
-            </div>
+            </div> -->
 
         </div>
 
@@ -47,11 +47,11 @@
         </div>
 
         <!-- Label Parola -->
-        <div class="form-group mb-3">
+        <!-- <div class="form-group mb-3">
             <label for="password">Parola</label>
             <input type="text" class="form-control" id="password" name="password" ngModel #password="ngModel" required
                 [(ngModel)]="userIdRequest.password">
-        </div>
+        </div> -->
 
         <!-- Buton Inregistrare -->
         <button type="submit" class="btn btn-success" [disabled]="!form.valid">Intregisreaza-te</button>

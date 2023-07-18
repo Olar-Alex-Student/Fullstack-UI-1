@@ -15,11 +15,15 @@ export class LoginComponent implements OnInit {
   userIdRequest: User= {
 
     // Definirea parametrior stadard pentru un utilzator
-    id: "",
-    name: "",
     email: "",
-    password: "",
-};
+    emailVerified: true,
+    name: "",
+    nickname: "",
+    picture: "",
+    userId: "",
+    username: ""
+    
+  };
 
   // 
   constructor(public auth: AuthService, private userService: UsersService, private router: Router) {
@@ -47,7 +51,7 @@ export class LoginComponent implements OnInit {
         // Afisarea eroare in conola
         console.log(response)
         console.log(this.userIdRequest.email)
-        console.log(this.userIdRequest.password)
+        //console.log(this.userIdRequest.password)
       }
     })
   }

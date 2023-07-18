@@ -21,10 +21,10 @@
         <!-- Body -->
         <tbody>
             <tr *ngFor="let user of users" >
-              <td>{{user.id}}</td>
+              <td>{{user.userId}}</td>
               <td>{{user.name}}</td>
               <td>{{user.email}}</td>
-              <td><a [routerLink]="['/users','edit', user.id]">View</a></td>
+              <td><a [routerLink]="['/users','edit', user.userId]">View</a></td>
             </tr>
           </tbody>
     </table>

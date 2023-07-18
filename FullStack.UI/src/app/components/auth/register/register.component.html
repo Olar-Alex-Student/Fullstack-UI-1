@@ -43,19 +43,19 @@
             </div>
 
             <!-- Erori de validare Parola -->
-            <div *ngIf="password.invalid && (password.dirty || password.touched)" class="alert alert-danger">
+            <!-- <div *ngIf="password.invalid && (password.dirty || password.touched)" class="alert alert-danger">
 
-                <!-- Parola nespecificata -->
+                
                 <div *ngIf="password.errors?.['required']">
                     Parola este necesara
                 </div>
 
-                <!-- Caractere parola < 8 -->
+                
                 <div *ngIf="password.errors?.['minlength']">
                     Parola trebuie sa aiba minim 8 caractere
                 </div>
 
-            </div>
+            </div> -->
 
         </div>
 
@@ -74,11 +74,11 @@
         </div>
 
         <!-- Label Parola -->
-        <div class="mb-3">
+        <!-- <div class="mb-3">
             <label for="password" class="form-label">Parola</label>
             <input type="password" class="form-control" id="password" name="password" ngModel #password="ngModel"
                 required [(ngModel)]="addUserRequest.password" minlength="10">
-        </div>
+        </div> -->
 
         <!-- Buton Salvare -->
         <button type="submit" class="btn btn-success" [disabled]="!form.valid">Creaza</button>
