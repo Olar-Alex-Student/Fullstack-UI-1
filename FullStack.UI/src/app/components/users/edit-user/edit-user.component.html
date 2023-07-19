@@ -3,7 +3,7 @@
 
     <!-- H1 Titlu Pagina -->
     <h1>
-        Adauga un angajat nou
+        Modifica angajatul
     </h1>
 
     <!-- Form Pentru Editare Angajati -->
@@ -67,18 +67,18 @@
         </div>
 
         <!-- Field Parola -->
-        <div class="mb-3">
+        <!-- <div class="mb-3">
             <label for="password" class="form-label">Parola</label>
-            <!-- <input type="password" class="form-control" id="password" name="password" ngModel #password="ngModel"
-                required minlength="8" [(ngModel)]="userDetails.password"> -->
-        </div>
+            <input type="password" class="form-control" id="password" name="password" ngModel #password="ngModel"
+                required minlength="8" [(ngModel)]="userDetails.password">
+        </div> -->
 
         <div class="d-grid gap-2 d-md-flex justify-content-md-start">
             <!-- Buton Submit -->
-            <button type="submit" class="btn btn-warning" [disabled]="!form.valid">Modifica</button>
+            <button type="submit" class="btn btn-warning" [disabled]="!form.valid" (click)="updateUser()">Modifica</button>
 
             <!-- Buton Delete -->
-            <button type="delete" class="btn btn-danger" (click)="deleteUser(userDetails.userId)">Sterge</button>
+            <button type="delete" class="btn btn-danger" (click)="deleteUser()">Sterge</button>
         </div>
 
     </form>

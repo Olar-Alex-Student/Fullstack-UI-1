@@ -11,6 +11,7 @@ import { LoginAuth0Component } from './components/auth/login-auth0/login-auth0.c
 
 // Auth0
 import { AuthGuard } from '@auth0/auth0-angular';
+import { GuardService } from './services/guard.service';
 
 const routes: Routes = [
 
@@ -35,7 +36,7 @@ const routes: Routes = [
     canActivate: [AuthGuard]
   },
   {
-    path: 'users/edit/:id',
+    path: 'users/edit/:userId',
     component: EditUserComponent,
     canActivate: [AuthGuard]
   },

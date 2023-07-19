@@ -12,18 +12,14 @@ import { AuthService } from '@auth0/auth0-angular';
 })
 export class LoginComponent implements OnInit {
 
-  userIdRequest: User= {
-
-    // Definirea parametrior stadard pentru un utilzator
-    email: "",
-    emailVerified: true,
-    name: "",
-    nickname: "",
-    picture: "",
+  userIdRequest: User = {
     userId: "",
-    username: ""
-    
-  };
+    email: "",
+    name: "",
+    username: "",
+    nickname: "",
+    picture: ""
+  }
 
   // 
   constructor(public auth: AuthService, private userService: UsersService, private router: Router) {

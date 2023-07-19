@@ -14,16 +14,13 @@ export class EditUserComponent implements OnInit {
 
   // Variabila locala
   userDetails: User = {
-
-    // Definirea parametrior stadard pentru un angajat
-    email: "",
-    emailVerified: true,
-    name: "",
-    nickname: "",
-    picture: "",
     userId: "",
-    username: ""
-  };
+    email: "",
+    name: "",
+    username: "",
+    nickname: "",
+    picture: ""
+  }
 
   // costructor cu variaile de rute
   constructor(private route: ActivatedRoute, private userService: UsersService, private router: Router) {
@@ -34,11 +31,11 @@ export class EditUserComponent implements OnInit {
   ngOnInit(): void {
     this.route.paramMap.subscribe({
       next: (params) => {
-        const id = params.get('id')
+        const userId = params.get('userId')
 
         // Verificarea daca exista un ID si atribuirile aferente
-        if(id) {
-          this.userService.getUser(id)
+        if(userId) {
+          this.userService.getUser(userId)
           .subscribe({
             next: (response) => {
 
@@ -69,7 +66,7 @@ export class EditUserComponent implements OnInit {
         this.router.navigate(["users"])
 
         // Afisarea in consola a Raspunsului
-        // console.log(response)
+        console.log(response)
       },
       error: (response) => {
 
@@ -80,8 +77,8 @@ export class EditUserComponent implements OnInit {
   }
 
   // Stergerea Angajat
-  deleteUser(id: string ) {
-    this.userService.deleteUser(id)
+  deleteUser() {
+    this.userService.deleteUser(this.userDetails.userId)
     .subscribe({
       next: (response) => {
 
@@ -89,7 +86,7 @@ export class EditUserComponent implements OnInit {
         this.router.navigate(["users"])
         
         // Afisarea in consola a Raspunsului
-        // console.log(response)
+        console.log(response)
       },
       error: (response) => {
 

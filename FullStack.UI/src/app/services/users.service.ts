@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { User } from '../models/user.model';
 import { Observable } from 'rxjs';
+import { AuthService } from '@auth0/auth0-angular';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +12,7 @@ export class UsersService {
   baseApiURL: string = 'https://localhost:7090'
   //baseApiURL: string = environment.apiUrl;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private auth: AuthService) { }
 
   // GET toti Angajatii din baza de date
   getAllUsers(): Observable<User[]> {
@@ -60,4 +61,16 @@ export class UsersService {
       //"password": userIdRequest.password
     }})
   }
+
+  // GET date utilizator din sesiunea curenta
+  getData(): any {
+    this.auth.user$.subscribe((user: any) => {
+      if (user) {
+        console.log(user);
+        return user
+      }
+    });
+  }
+
+  // 
 }

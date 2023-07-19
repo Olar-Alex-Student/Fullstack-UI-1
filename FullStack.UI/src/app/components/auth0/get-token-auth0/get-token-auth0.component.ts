@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '@auth0/auth0-angular';
+import { AuthModule, AuthService } from '@auth0/auth0-angular';
+import { UsersService } from 'src/app/services/users.service';
 
 @Component({
   selector: 'app-get-token-auth0',

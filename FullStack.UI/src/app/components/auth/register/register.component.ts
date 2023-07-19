@@ -12,17 +12,13 @@ import { NgModel, NgForm } from '@angular/forms';
 export class RegisterComponent implements OnInit {
 
   addUserRequest: User = {
-
-    // Definirea parametrior stadard pentru un utilzator
-    email: "",
-    emailVerified: true,
-    name: "",
-    nickname: "",
-    picture: "",
     userId: "",
-    username: ""
-
-  };
+    email: "",
+    name: "",
+    username: "",
+    nickname: "",
+    picture: ""
+  }
 
   // Creat de rute + utilizatori
   constructor(private userService: UsersService, private router: Router) {

@@ -43,8 +43,14 @@
           <!-- Link Pt. Conectare Pe Cont Cu Auth0 -->
           <li class="nav-item">
 
+            <!-- Test Auth0 Comp Adaugare User -->
+            <app-add-user-auth0 *ngIf="auth.isAuthenticated$ | async"></app-add-user-auth0>
+
             <!-- Token Auth0 Button -->
-            <app-get-token-auth0></app-get-token-auth0>
+            <app-get-token-auth0 *ngIf="auth.isAuthenticated$ | async"></app-get-token-auth0>
+
+            <!-- User Data Button -->
+            <app-get-user-data-auth0 *ngIf="auth.isAuthenticated$ | async"></app-get-user-data-auth0>
 
             <!-- Login Auth0 Buton -->
             <app-login-auth0 *ngIf="(auth.isAuthenticated$ | async) == false"></app-login-auth0>

@@ -16,13 +16,32 @@ import { GetTokenAuth0Component } from '../../auth0/get-token-auth0/get-token-au
 export class LoginAuth0Component {
 
   // 
-  constructor(public auth: AuthService) { }
+  addUserRequest: User = {
+    userId: "",
+    email: "",
+    name: "",
+    username: "",
+    nickname: "",
+    picture: ""
+  }
+
+  // 
+  constructor(public auth: AuthService, public user: UsersService) { }
 
   // Login Redirect Auth 0
   loginWithRedirect(): void {
 
     // Prop de la Auth0 login cu redirect
-    this.auth.loginWithRedirect();
+    this.auth.loginWithRedirect()
+    .subscribe({
+      next: (response) => {
+        console.log(response)
+      },
+      error: (response) => {
+        console.log(response)
+      }
+    })
 
   }
+  
 }

@@ -22,6 +22,8 @@ import { LogoutAuth0Component } from './components/auth/logout-auth0/logout-auth
 import { GetUserAuth0Component } from './components/users/get-user-auth0/get-user-auth0.component';
 import { GetUsersAuth0Component } from './components/users/get-users-auth0/get-users-auth0.component';
 import { GetTokenAuth0Component } from './components/auth0/get-token-auth0/get-token-auth0.component';
+import { GetUserDataAuth0Component } from './components/auth0/get-user-data-auth0/get-user-data-auth0.component';
+import { AddUserAuth0Component } from './components/auth0/add-user-auth0/add-user-auth0.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +40,8 @@ import { GetTokenAuth0Component } from './components/auth0/get-token-auth0/get-t
     GetUserAuth0Component,
     GetUsersAuth0Component,
     GetTokenAuth0Component,
+    GetUserDataAuth0Component,
+    AddUserAuth0Component,
   ],
   imports: [
     BrowserModule,
