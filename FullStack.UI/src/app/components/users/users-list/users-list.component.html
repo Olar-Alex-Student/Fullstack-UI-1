@@ -1,36 +1,51 @@
 <!-- Container Pagina Angajati -->
 <div class="container p-4">
-    
-    <!-- H1 Titlu Pagina -->
-    <h1>
-        Utilizatori
-    </h1>
-    
-    <!-- Tabel Agajati -->
-    <table class="table table-light table-striped" *ngIf = "users && users.length > 0 ">
-        <!-- Head -->
-        <thead>
-            <tr>
-              <th scope="col">Id</th>
-              <th scope="col">Nume</th>
-              <th scope="col">Email</th>
-              <th> </th>
-            </tr>
-        </thead>
 
-        <!-- Body -->
-        <tbody>
-            <tr *ngFor="let user of users" >
-              <td>{{user.userId}}</td>
-              <td>{{user.name}}</td>
-              <td>{{user.email}}</td>
-              <td><a [routerLink]="['/users','edit', user.userId]">View</a></td>
-            </tr>
-          </tbody>
-    </table>
-    
-    <!-- If Daca Nu Exista Angajati -->
-    <p *ngIf = "!users || users.length <= 0">
-        Niciun utilizator gasit
-    </p>
+  <!-- H1 Titlu Pagina -->
+  <h1>
+    Utilizatori
+  </h1>
+
+  <!-- Tabel Agajati -->
+  <!-- <table class="table table-light table-striped" *ngIf="users && users.length > 0 "> -->
+  <!-- Head -->
+  <!-- <thead>
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Nume</th>
+        <th scope="col">Email</th>
+        <th> </th>
+      </tr>
+    </thead> -->
+
+  <!-- Body -->
+  <!-- <tbody>
+      <tr *ngFor="let user of users">
+        <td>{{user.userId}}</td>
+        <td>{{user.name}}</td>
+        <td>{{user.email}}</td>
+        <td><a [routerLink]="['/users','edit', user.userId]">View</a></td>
+      </tr>
+    </tbody>
+  </table> -->
+
+  <ul *ngIf="users && users.length > 0 ">
+    <li class="list-group-item">
+      <div class="container" *ngFor="let user of users">
+        <div class="card" style="width: 18rem;">
+          <img src={{user.picture}}>
+          <div class="card-body">
+            <h5 class="card-title text-center">{{user.name}}</h5>
+            <hr>
+            <a class="card-link text-center" [routerLink]="['/users','edit', user.userId]">Edit</a>
+          </div>
+        </div>
+      </div>
+    </li>
+  </ul>
+
+  <!-- If Daca Nu Exista Angajati -->
+  <p *ngIf="!users || users.length <= 0">
+    Niciun utilizator gasit
+  </p>
 </div>

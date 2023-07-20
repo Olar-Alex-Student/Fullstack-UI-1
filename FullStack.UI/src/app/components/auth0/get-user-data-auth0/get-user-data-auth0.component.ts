@@ -10,21 +10,4 @@ import { UsersService } from 'src/app/services/users.service';
   styleUrls: ['./get-user-data-auth0.component.css']
 })
 export class GetUserDataAuth0Component {
-
-  // 
-  constructor(public user: UsersService, public auth: AuthService, private router: Router) {
-  }
-
-  // 
-  ngOnInit(): void {
-
-  }
-  
-  // 
-  getUserData() : void {
-
-    //
-    this.user.getData()
-    
-  }
 }
