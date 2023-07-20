@@ -29,20 +29,28 @@
     </tbody>
   </table> -->
 
-  <ul *ngIf="users && users.length > 0 ">
-    <li class="list-group-item">
-      <div class="container" *ngFor="let user of users">
-        <div class="card" style="width: 18rem;">
-          <img src={{user.picture}}>
-          <div class="card-body">
-            <h5 class="card-title text-center">{{user.name}}</h5>
+  <!-- Container -->
+  <div class="container">
+
+    <!-- Linie pentru fiecare user -->
+    <div class="row">
+
+      <!-- Coloana -->
+      <div class="col-sm p-3" *ngFor="let user of users">
+        
+        <!-- Card de user -->
+        <div class="card" style="width: 15rem;">
+          <img class="card-img-top" src={{user.picture}} alt="Card image cap">
+          <div class="card-body text-center">
+            <h5 class="card-title">{{user.nickname}}</h5>
             <hr>
-            <a class="card-link text-center" [routerLink]="['/users','edit', user.userId]">Edit</a>
+            <a [routerLink]="['/users','edit', user.userId]" class="btn btn-primary">Edit</a>
           </div>
         </div>
+
       </div>
-    </li>
-  </ul>
+    </div>
+  </div>
 
   <!-- If Daca Nu Exista Angajati -->
   <p *ngIf="!users || users.length <= 0">
