@@ -26,7 +26,7 @@ export class AppComponent {
 
   constructor(public authService: AuthService, public userService: UsersService, public auth0Service: Auth0Service) {
 
-    // 
+    // Atribuirea datelor utilizatorului sesiunii
     this.auth0Service.getUserData().subscribe(user => {
       this.user = user
       console.log(user)

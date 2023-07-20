@@ -3,10 +3,7 @@ import { Router } from '@angular/router';
 import { UsersService } from 'src/app/services/users.service';
 import { NgModel, NgForm } from '@angular/forms';
 import { AuthService, User } from '@auth0/auth0-angular';
-import { AddUserAuth0Component } from '../../auth0/add-user-auth0/add-user-auth0.component';
 
-// import getToken
-import { GetTokenAuth0Component } from '../../auth0/get-token-auth0/get-token-auth0.component';
 import { Auth0Service } from 'src/app/services/auth0.service';
 
 @Component({
