@@ -121,17 +121,17 @@
         <div class="mb-3">
             <label for="department" class="form-label">Departament</label>
             <input type="text" class="form-control" id="department" name="department" ngModel #department="ngModel"
-                required [(ngModel)]="employeeDetails.department">
+                required [(ngModel)]="employeeDetails.department.name">
         </div>
 
         <div class="d-grid gap-2 d-md-flex justify-content-md-start">
             <!-- Buton Submit -->
             <button type="submit" class="btn btn-warning" (click)="console(form)"
-                [disabled]="!form.valid">Modifica</button>
+                (click)="updateEmployee()" [disabled]="!form.valid">Modifica</button>
 
             <!-- Buton Delete -->
             <button type="delete" class="btn btn-danger" (click)="console(form)"
-                (click)="deleteEmployee(employeeDetails.id)">Sterge</button>
+                (click)="deleteEmployee(employeeDetails.employeeId)">Sterge</button>
         </div>
 
     </form>

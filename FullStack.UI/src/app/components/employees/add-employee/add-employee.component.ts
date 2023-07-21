@@ -14,12 +14,14 @@ export class AddEmployeeComponent implements OnInit{
   addEmployeeRequest: Employee = {
 
     // Definirea parametrior stadard pentru un angajat
-    id: "",
+    employeeId: "",
     name: "",
     email: "",
     phone: "",
     salary: 0,
-    department: ""
+    department: {
+      name: ""
+    }
   };
   
   // Creara de rute + angajati

@@ -17,12 +17,14 @@ export class EditEmployeeComponent implements OnInit {
   employeeDetails: Employee = {
 
     // Definirea parametrior stadard pentru un angajat
-    id: "",
+    employeeId: "",
     name: "",
     email: "",
     phone: "",
     salary: 0,
-    department: ""
+    department: {
+      name: ""
+    }
   };
 
   // costructor cu variaile de rute
@@ -61,7 +63,7 @@ export class EditEmployeeComponent implements OnInit {
 
   // Modifica Angajat
   updateEmployee() {
-    this.employeeService.updateEmployee(this.employeeDetails.id , this.employeeDetails)
+    this.employeeService.updateEmployee(this.employeeDetails.employeeId , this.employeeDetails)
     .subscribe({
       next: (response) => {
 
