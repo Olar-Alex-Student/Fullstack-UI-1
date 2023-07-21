@@ -12,6 +12,9 @@ import { LoginAuth0Component } from './components/auth/login-auth0/login-auth0.c
 // Auth0
 import { AuthGuard } from '@auth0/auth0-angular';
 import { GuardService } from './services/guard.service';
+import { DepartmentsListComponent } from './components/departments/departments-list/departments-list.component';
+import { AddDepartmentComponent } from './components/departments/add-department/add-department.component';
+import { EditDepartmentComponent } from './components/departments/edit-department/edit-department.component';
 
 const routes: Routes = [
 
@@ -55,6 +58,23 @@ const routes: Routes = [
   {
     path: 'employees/edit/:id',
     component: EditEmployeeComponent,
+    canActivate: [AuthGuard]
+  },
+
+  // Rute Departamente
+  {
+    path: 'departments',
+    component: DepartmentsListComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'departments/add',
+    component: AddDepartmentComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'departments/edit/:id',
+    component: EditDepartmentComponent,
     canActivate: [AuthGuard]
   },
 ];

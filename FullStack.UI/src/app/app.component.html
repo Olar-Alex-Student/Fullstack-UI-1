@@ -20,12 +20,17 @@
 
           <!-- Link Pt. Aduagare Angajati -->
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" routerLink="employees/add">Adauga Angajati</a>
+            <a *ngIf="(authService.isAuthenticated$ | async)" class="nav-link active" aria-current="page" routerLink="employees/add">Adauga Angajati</a>
           </li>
 
-          <!-- Link Pt. Lista Utilizator -->
+          <!-- Link Pt. Vizulaizare Departamente -->
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" routerLink="users">Utilizatori</a>
+            <a class="nav-link active" aria-current="page" routerLink="departments">Departamente</a>
+          </li>
+
+          <!-- Link Pt. Vizulaizare Adaugare Departament -->
+          <li class="nav-item">
+            <a *ngIf="(authService.isAuthenticated$ | async)" class="nav-link active" aria-current="page" routerLink="departments/add">Adauga Departamente</a>
           </li>
 
         </ul>
@@ -34,6 +39,11 @@
       <!-- Inregstrare / Conectare -->
       <div>
         <ul class="navbar-nav">
+
+          <!-- Link Pt. Lista Utilizator -->
+          <li class="nav-item">
+            <a *ngIf="(authService.isAuthenticated$ | async)" class="nav-link active" aria-current="page" routerLink="users">Utilizatori</a>
+          </li>
 
           <!-- Link Pt. Conectare Pe Cont Cu Auth0 -->
           <li class="nav-item">

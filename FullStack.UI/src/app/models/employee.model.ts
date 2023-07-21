@@ -1,7 +1,4 @@
-export interface  Department {
-    id?: string,
-    name: string
-}
+import { Department } from "./department.model"
 
 export interface Employee {
 employeeId: string,

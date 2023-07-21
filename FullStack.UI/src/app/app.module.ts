@@ -19,6 +19,9 @@ import { AuthService } from '@auth0/auth0-angular';
 import { environment } from 'src/environments/environment';
 import { LoginAuth0Component } from './components/auth/login-auth0/login-auth0.component';
 import { LogoutAuth0Component } from './components/auth/logout-auth0/logout-auth0.component';
+import { DepartmentsListComponent } from './components/departments/departments-list/departments-list.component';
+import { AddDepartmentComponent } from './components/departments/add-department/add-department.component';
+import { EditDepartmentComponent } from './components/departments/edit-department/edit-department.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +35,9 @@ import { LogoutAuth0Component } from './components/auth/logout-auth0/logout-auth
     EditUserComponent,
     LoginAuth0Component,
     LogoutAuth0Component,
+    DepartmentsListComponent,
+    AddDepartmentComponent,
+    EditDepartmentComponent,
   ],
   imports: [
     BrowserModule,
