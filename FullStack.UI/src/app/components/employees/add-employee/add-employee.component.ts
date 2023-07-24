@@ -15,6 +15,11 @@ export class AddEmployeeComponent implements OnInit{
 
   // Variabila locala
   departmentsList: Department[] = [];
+
+  addDepartmentRequest: Department = {
+    departmentId: "",
+    name: ""
+  }
   
   addEmployeeRequest: Employee = {
 
@@ -24,11 +29,8 @@ export class AddEmployeeComponent implements OnInit{
     email: "",
     phone: "",
     salary: 0,
-    departmentId: "",
-    department: {
-      departmentId: "",
-      name: ""
-    }
+    departmentId: this.addDepartmentRequest.departmentId,
+    department: this.addDepartmentRequest
   };
   
   // Creara de rute + angajati
@@ -43,10 +45,16 @@ export class AddEmployeeComponent implements OnInit{
     this.departmentService.getAllDepartments()
     .subscribe({
       next: (departments: any) => {
-        this.departmentsList = departments  
+
+        // Atribuire la lista departamnte
+        this.departmentsList = departments 
+        
+        // Afisare in consola
         console.log(this.departmentsList);
       },
       error: (response: any) => {
+
+        // Afisare in consola
         console.log(response);
       }
     })
