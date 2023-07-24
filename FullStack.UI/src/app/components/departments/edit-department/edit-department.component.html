@@ -1,1 +1,50 @@
-<p>edit-department works!</p>
+<!-- Container Pagina Editare Angajati -->
+<div class="container p-4">
+
+    <!-- H1 Titlu Pagina -->
+    <h1>
+        Adauga un angajat nou
+    </h1>
+
+    <!-- Form Pentru Editare Angajati -->
+    <form #form="ngForm" (ngSubmit)="updateDepartment()">
+
+        <!-- Validari -->
+        <div class="validation">
+
+            <!-- Erori de validare Nume -->
+            <div *ngIf="name.invalid" class="alert alert-danger">
+
+                <!-- Nume nespecificat -->
+                <div *ngIf="name.errors?.['required']">
+                    Numele este necesar
+                </div>
+
+                <!-- Caractere nume < 3 -->
+                <div *ngIf="name.errors?.['minlength']">
+                    Numele trebuie sa aiba minim 3 caractere
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- Field Nume -->
+        <div class="mb-3">
+            <label for="name" class="form-label">Nume</label>
+            <input type="text" class="form-control" id="name" name="name" ngModel #name="ngModel" required minlength="3"
+                [(ngModel)]="departmentDetails.name">
+        </div>
+
+        <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+            <!-- Buton Submit -->
+            <button type="submit" class="btn btn-warning" (click)="console(form)"
+                (click)="updateDepartment()" [disabled]="!form.valid">Modifica</button>
+
+            <!-- Buton Delete -->
+            <button type="delete" class="btn btn-danger" (click)="console(form)"
+                (click)="deleteDepartment(departmentDetails.departmentId)">Sterge</button>
+        </div>
+
+    </form>
+</div>

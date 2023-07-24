@@ -19,7 +19,9 @@ export class AddEmployeeComponent implements OnInit{
     email: "",
     phone: "",
     salary: 0,
+    departmentId: "",
     department: {
+      departmentId: "",
       name: ""
     }
   };

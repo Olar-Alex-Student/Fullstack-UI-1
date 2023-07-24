@@ -9,7 +9,7 @@ import { Validator } from '@angular/forms';
   selector: 'app-edit-employee',
   templateUrl: './edit-employee.component.html',
   styleUrls: ['./edit-employee.component.css']
-})   
+})
 
 export class EditEmployeeComponent implements OnInit {
 
@@ -22,14 +22,16 @@ export class EditEmployeeComponent implements OnInit {
     email: "",
     phone: "",
     salary: 0,
+    departmentId: "",
     department: {
+      departmentId: "",
       name: ""
     }
   };
 
   // costructor cu variaile de rute
   constructor(private route: ActivatedRoute, private employeeService: EmployeesService, private router: Router) {
-    
+
   }
 
   // 
@@ -39,23 +41,23 @@ export class EditEmployeeComponent implements OnInit {
         const id = params.get('id')
 
         // Verificarea daca exista un ID si atribuirile aferente
-        if(id) {
+        if (id) {
           this.employeeService.getEmployee(id)
-          .subscribe({
-            next: (response) => {
+            .subscribe({
+              next: (response) => {
 
-              // Afisarea de mesaj in consola
-              console.log(response)
+                // Afisarea de mesaj in consola
+                console.log(response)
 
-              // Atribuirea raspunsului in consola
-              this.employeeDetails = response;
-            },
-            error: (response) => {
+                // Atribuirea raspunsului in consola
+                this.employeeDetails = response;
+              },
+              error: (response) => {
 
-              // Afisarea erorii in consola
-              console.log(response)
-            }
-          })
+                // Afisarea erorii in consola
+                console.log(response)
+              }
+            })
         }
       }
     })
@@ -63,42 +65,42 @@ export class EditEmployeeComponent implements OnInit {
 
   // Modifica Angajat
   updateEmployee() {
-    this.employeeService.updateEmployee(this.employeeDetails.employeeId , this.employeeDetails)
-    .subscribe({
-      next: (response) => {
+    this.employeeService.updateEmployee(this.employeeDetails.employeeId, this.employeeDetails)
+      .subscribe({
+        next: (response) => {
 
-        //Redirectionare catre pagina cu toti angajatii
-        this.router.navigate(["employees"])
+          //Redirectionare catre pagina cu toti angajatii
+          this.router.navigate(["employees"])
 
-        // Afisarea in consola a Raspunsului
-        // console.log(response)
-      },
-      error: (response) => {
+          // Afisarea in consola a Raspunsului
+          // console.log(response)
+        },
+        error: (response) => {
 
-        // Afisarea in consola a Erorii
-        console.log(response)
-      }
-    })
+          // Afisarea in consola a Erorii
+          console.log(response)
+        }
+      })
   }
 
   // Stergerea Angajat
-  deleteEmployee(id: string ) {
+  deleteEmployee(id: string) {
     this.employeeService.deleteEmployee(id)
-    .subscribe({
-      next: (response) => {
+      .subscribe({
+        next: (response) => {
 
-        //Redirectionare catre pagina cu toti angajatii
-        this.router.navigate(["employees"])
-        
-        // Afisarea in consola a Raspunsului
-        // console.log(response)
-      },
-      error: (response) => {
-        
-        // Afisarea in consola a Erorii
-        console.log(response)
-      }
-    })
+          //Redirectionare catre pagina cu toti angajatii
+          this.router.navigate(["employees"])
+
+          // Afisarea in consola a Raspunsului
+          // console.log(response)
+        },
+        error: (response) => {
+
+          // Afisarea in consola a Erorii
+          console.log(response)
+        }
+      })
   }
 
   // Afisarea in consola a ngForm si ngModel pt PUT si DELETE

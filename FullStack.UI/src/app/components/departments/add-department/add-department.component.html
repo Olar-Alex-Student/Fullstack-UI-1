@@ -1,1 +1,42 @@
-<p>add-department works!</p>
+<!-- Container Pagina Angajati -->
+<div class="container p-4">
+
+    <!-- H1 Titlu Pagina -->
+    <h1>
+        Adauga un departament nou
+    </h1>
+
+    <!-- Form Pentru Adaugae Angajati -->
+    <form #form="ngForm" (ngSubmit)="addDepartment()">
+
+        <!-- Validari -->
+        <div class="validation">
+
+            <!-- Erori de validare Nume -->
+            <div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert alert-danger">
+
+                <!-- Nume nespecificat -->
+                <div *ngIf="name.errors?.['required']">
+                    Numele este necesar
+                </div>
+
+                <!-- Caractere nume < 3 -->
+                <div *ngIf="name.errors?.['minlength']">
+                    Numele trebuie sa aiba minim 3 caractere
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- Field Nume -->
+        <div class="mb-3">
+            <label for="name" class="form-label">Nume</label>
+            <input type="text" class="form-control" id="name" name="name" ngModel #name="ngModel" required minlength="3"
+                [(ngModel)]="addDepartmentRequest.name">
+        </div>
+
+        <!-- Buton Submit -->
+        <button type="submit" class="btn btn-success" (click)="console(form)" [disabled]="!form.valid">Salveaza</button>
+    </form>
+</div>

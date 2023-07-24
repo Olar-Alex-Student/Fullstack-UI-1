@@ -23,7 +23,7 @@ export class DepartmentsService {
   addNewDepartment(addDepartmentRequest: Department): Observable<Department>{
 
     // Initializare Guid Empty pentru fiecare angajat nou
-    addDepartmentRequest.id = "00000000-0000-0000-0000-000000000000"
+    addDepartmentRequest.departmentId = "00000000-0000-0000-0000-000000000000"
 
     // 
     return this.http.post<Department>(this.baseApiURL + "/api/Departments", addDepartmentRequest);

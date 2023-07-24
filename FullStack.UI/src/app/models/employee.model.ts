@@ -6,5 +6,6 @@ employeeId: string,
     email: string,
     phone: string,
     salary: number,
+    departmentId: string,
     department: Department
 }
