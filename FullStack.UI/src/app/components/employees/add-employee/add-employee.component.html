@@ -77,16 +77,6 @@
 
             </div>
 
-            <!-- Erori de validare Departament -->
-            <div *ngIf="department.invalid && (department.dirty || department.touched)" class="alert alert-danger">
-
-                <!-- Departament nespecificat -->
-                <div *ngIf="department.errors?.['required']">
-                    Departamentul este necesar
-                </div>
-
-            </div>
-
         </div>
 
         <!-- Field Nume -->
@@ -118,10 +108,21 @@
         </div>
 
         <!-- Field Departamanet -->
-        <div class="mb-3">
+        <!-- <div class="mb-3">
             <label for="department" class="form-label">Departament</label>
             <input type="text" class="form-control" id="department" name="department" ngModel #department="ngModel"
                 required [(ngModel)]="addEmployeeRequest.department">
+        </div> -->
+        <div class="mb-3">
+            <label for="department" class="form-label">Departament</label>
+            <select class="form-select" id="department" name="department" ngModel required
+            [(ngModel)]="addEmployeeRequest.departmentId">
+                <option *ngFor="let department of departmentsList" value="{{department.departmentId}}">{{department.name}}</option>
+            </select>
+        </div>
+
+        <div class="mb3">
+
         </div>
 
         <!-- Field Avatar -->

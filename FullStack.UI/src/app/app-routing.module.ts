@@ -15,6 +15,7 @@ import { GuardService } from './services/guard.service';
 import { DepartmentsListComponent } from './components/departments/departments-list/departments-list.component';
 import { AddDepartmentComponent } from './components/departments/add-department/add-department.component';
 import { EditDepartmentComponent } from './components/departments/edit-department/edit-department.component';
+import { DetailsDepartmentComponent } from './components/departments/details-department/details-department.component';
 
 const routes: Routes = [
 
@@ -75,6 +76,11 @@ const routes: Routes = [
   {
     path: 'departments/edit/:id',
     component: EditDepartmentComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'departments/view/:id',
+    component: DetailsDepartmentComponent,
     canActivate: [AuthGuard]
   },
 ];

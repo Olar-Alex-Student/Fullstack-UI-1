@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Department } from 'src/app/models/department.model';
 import { Employee } from 'src/app/models/employee.model';
 import { EmployeesService } from 'src/app/services/employees.service';
 
@@ -9,6 +10,8 @@ import { EmployeesService } from 'src/app/services/employees.service';
 })
 export class EmployeesListComponent implements OnInit {
 
+  departmanets: Department[] = [];
+
   employees: Employee[] = [];
 
   constructor(private employeesService: EmployeesService) {}
@@ -17,10 +20,16 @@ export class EmployeesListComponent implements OnInit {
     this.employeesService.getAllEmployees()
     .subscribe({
       next: (employees: any) => {
-        this.employees = employees  
+        
+        // Atribuire 
+        this.employees = employees
+        
+        // Afisare
         console.log(employees);
       },
       error: (response: any) => {
+
+        // Afisare
         console.log(response);
       }
     })

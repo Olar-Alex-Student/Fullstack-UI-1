@@ -3,9 +3,9 @@
     
     <!-- H1 Titlu Pagina -->
     <h1>
-        Angajati
+        Angajatii Departamentului
     </h1>
-    
+
     <!-- Tabel Agajati -->
     <table class="table table-light table-striped" *ngIf = "employees && employees.length > 0 ">
         <!-- Head -->
@@ -16,7 +16,6 @@
               <th scope="col">Email</th>
               <th scope="col">Telefon</th>
               <th scope="col">Salariu</th>
-              <th scope="col">Departament</th>
               <th>Edit</th>
             </tr>
         </thead>
@@ -29,7 +28,6 @@
               <td>{{employee.email}}</td>
               <td>{{employee.phone}}</td>
               <td>{{employee.salary}}</td>
-              <td>{{employee.department?.name}}</td>
               <td><a [routerLink]="['/employees','edit', employee.employeeId]">Edit</a></td>
             </tr>
           </tbody>
@@ -39,4 +37,5 @@
     <p *ngIf = "!employees || employees.length <= 0">
         Niciun angajat gasit
     </p>
+
 </div>

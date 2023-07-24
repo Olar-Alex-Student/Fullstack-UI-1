@@ -2,7 +2,9 @@ import { Component, ElementRef, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Employee } from 'src/app/models/employee.model';
 import { EmployeesService } from 'src/app/services/employees.service';
-import { NgModel, NgForm } from '@angular/forms';
+import { NgModel, NgForm, FormControl } from '@angular/forms';
+import { Department } from 'src/app/models/department.model';
+import { DepartmentsService } from 'src/app/services/departments.service';
 
 @Component({
   selector: 'app-add-employee',
@@ -10,6 +12,9 @@ import { NgModel, NgForm } from '@angular/forms';
   styleUrls: ['./add-employee.component.css']
 })
 export class AddEmployeeComponent implements OnInit{
+
+  // Variabila locala
+  departmentsList: Department[] = [];
   
   addEmployeeRequest: Employee = {
 
@@ -27,13 +32,24 @@ export class AddEmployeeComponent implements OnInit{
   };
   
   // Creara de rute + angajati
-  constructor(private employeeService: EmployeesService, private router: Router) {
+  constructor(private departmentService: DepartmentsService , private employeeService: EmployeesService, private router: Router) {
     
   }
 
   //
   ngOnInit(): void {
     
+    // peluarea de departamente
+    this.departmentService.getAllDepartments()
+    .subscribe({
+      next: (departments: any) => {
+        this.departmentsList = departments  
+        console.log(this.departmentsList);
+      },
+      error: (response: any) => {
+        console.log(response);
+      }
+    })
   }
 
   // Adaugare Angajat
@@ -44,11 +60,11 @@ export class AddEmployeeComponent implements OnInit{
     .subscribe({
       next: (employee) => {
 
+        // Afisarea Rezulatului in consola
+        console.log(employee)
+
         //Redirectionare catre pagina cu toti angajatii
         this.router.navigate(["employees"])
-
-        // Afisarea Rezulatului in consola
-        // console.log(employee)
       },
       error: (response) => {
 

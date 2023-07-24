@@ -3,7 +3,7 @@
 
     <!-- H1 Titlu Pagina -->
     <h1>
-        Adauga un angajat nou
+        Modifica un angajat
     </h1>
 
     <!-- Form Pentru Editare Angajati -->
@@ -77,16 +77,6 @@
 
             </div>
 
-            <!-- Erori de validare Departament -->
-            <div *ngIf="department.invalid" class="alert alert-danger">
-
-                <!-- Departament nespecificat -->
-                <div *ngIf="department.errors?.['required']">
-                    Departamentul este necesar
-                </div>
-
-            </div>
-
         </div>
 
         <!-- Field Nume -->
@@ -118,10 +108,17 @@
         </div>
 
         <!-- Field Departamanet -->
-        <div class="mb-3">
+        <!-- <div class="mb-3">
             <label for="department" class="form-label">Departament</label>
             <input type="text" class="form-control" id="department" name="department" ngModel #department="ngModel"
                 required [(ngModel)]="employeeDetails.department.name">
+        </div> -->
+        <div class="mb-3">
+            <label for="department" class="form-label">Departament</label>
+            <select class="form-select" id="department" name="departmentId" ngModel #departmentId="ngModel" required
+            [(ngModel)]="employeeDetails.departmentId">
+                <option  id="department" *ngFor="let department of departmentsList">{{department?.name}}</option>
+            </select>
         </div>
 
         <div class="d-grid gap-2 d-md-flex justify-content-md-start">

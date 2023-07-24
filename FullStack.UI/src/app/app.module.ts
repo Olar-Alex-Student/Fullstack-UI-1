@@ -22,6 +22,7 @@ import { LogoutAuth0Component } from './components/auth/logout-auth0/logout-auth
 import { DepartmentsListComponent } from './components/departments/departments-list/departments-list.component';
 import { AddDepartmentComponent } from './components/departments/add-department/add-department.component';
 import { EditDepartmentComponent } from './components/departments/edit-department/edit-department.component';
+import { DetailsDepartmentComponent } from './components/departments/details-department/details-department.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { EditDepartmentComponent } from './components/departments/edit-departmen
     DepartmentsListComponent,
     AddDepartmentComponent,
     EditDepartmentComponent,
+    DetailsDepartmentComponent,
   ],
   imports: [
     BrowserModule,

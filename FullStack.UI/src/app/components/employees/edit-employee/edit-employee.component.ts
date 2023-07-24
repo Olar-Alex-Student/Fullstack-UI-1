@@ -4,6 +4,8 @@ import { EmployeesService } from 'src/app/services/employees.service';
 import { Employee } from 'src/app/models/employee.model';
 import { NgModel, NgForm } from '@angular/forms';
 import { Validator } from '@angular/forms';
+import { Department } from 'src/app/models/department.model';
+import { DepartmentsService } from 'src/app/services/departments.service';
 
 @Component({
   selector: 'app-edit-employee',
@@ -12,6 +14,9 @@ import { Validator } from '@angular/forms';
 })
 
 export class EditEmployeeComponent implements OnInit {
+
+  // Variabila locala
+  departmentsList: Department[] = [];
 
   // Variabila locala
   employeeDetails: Employee = {
@@ -27,15 +32,18 @@ export class EditEmployeeComponent implements OnInit {
       departmentId: "",
       name: ""
     }
+
   };
 
   // costructor cu variaile de rute
-  constructor(private route: ActivatedRoute, private employeeService: EmployeesService, private router: Router) {
+  constructor(private departmentService: DepartmentsService, private route: ActivatedRoute, private employeeService: EmployeesService, private router: Router) {
 
   }
 
   // 
   ngOnInit(): void {
+
+    // 
     this.route.paramMap.subscribe({
       next: (params) => {
         const id = params.get('id')
@@ -44,13 +52,14 @@ export class EditEmployeeComponent implements OnInit {
         if (id) {
           this.employeeService.getEmployee(id)
             .subscribe({
-              next: (response) => {
+              next: (employee: any) => {
 
                 // Afisarea de mesaj in consola
-                console.log(response)
+                console.log(employee)
 
                 // Atribuirea raspunsului in consola
-                this.employeeDetails = response;
+                this.employeeDetails = employee;
+
               },
               error: (response) => {
 
@@ -61,6 +70,19 @@ export class EditEmployeeComponent implements OnInit {
         }
       }
     })
+
+    // 
+    this.departmentService.getAllDepartments()
+      .subscribe({
+        next: (departments: any) => {
+          this.departmentsList = departments
+          console.log(this.departmentsList);
+        },
+        error: (response: any) => {
+          console.log(response);
+        }
+      })
+
   }
 
   // Modifica Angajat
