@@ -83,41 +83,40 @@
         <div class="mb-3">
             <label for="name" class="form-label">Nume</label>
             <input type="text" class="form-control" id="name" name="name" ngModel #name="ngModel" required minlength="3"
-                [(ngModel)]="employeeDetails.name">
+                [(ngModel)]="updateEmployeeRequest.name">
         </div>
 
         <!-- Field Email -->
         <div class="mb-3">
             <label for="email" class="form-label">Email</label>
             <input type="email" class="form-control" id="email" name="email" ngModel #prmEmail="ngModel"
-                #email="ngModel" required [(ngModel)]="employeeDetails.email" email="true">
+                #email="ngModel" required [(ngModel)]="updateEmployeeRequest.email" email="true">
         </div>
 
         <!-- Field Telefon -->
         <div class="mb-3">
             <label for="phone" class="form-label">Telefon</label>
             <input type="text" class="form-control" id="phone" name="phone" ngModel #phone="ngModel" required
-                minlength="10" maxlength="10" [(ngModel)]="employeeDetails.phone">
+                minlength="10" maxlength="10" [(ngModel)]="updateEmployeeRequest.phone">
         </div>
 
         <!-- Field Salariu -->
         <div class="mb-3">
             <label for="salary" class="form-label">Salariu</label>
             <input type="number" class="form-control" id="salary" name="salary" ngModel #salary="ngModel" required
-                min="3000" [(ngModel)]="employeeDetails.salary">
+                min="3000" [(ngModel)]="updateEmployeeRequest.salary">
         </div>
 
         <!-- Field Departamanet -->
         <!-- <div class="mb-3">
             <label for="department" class="form-label">Departament</label>
             <input type="text" class="form-control" id="department" name="department" ngModel #department="ngModel"
-                required [(ngModel)]="employeeDetails.department.name">
+                required [(ngModel)]="updateEmployeeRequest.department.name">
         </div> -->
         <div class="mb-3">
             <label for="department" class="form-label">Departament</label>
-            <select class="form-select" id="department" name="departmentId" ngModel #departmentId="ngModel" required
-            [(ngModel)]="employeeDetails.departmentId">
-                <option  id="department" *ngFor="let department of departmentsList">{{department?.name}}</option>
+            <select class="form-select" id="department" name="departmentId" ngModel #departmentId="ngModel" required [(ngModel)]="updateDepartmentRequest" (ngModelChange)="updateEmployeeDepartment()">
+                <option  *ngFor="let department of departmentsList" [ngValue]="department">{{department?.name}}</option>
             </select>
         </div>
 
@@ -128,7 +127,7 @@
 
             <!-- Buton Delete -->
             <button type="delete" class="btn btn-danger" (click)="console(form)"
-                (click)="deleteEmployee(employeeDetails.employeeId)">Sterge</button>
+                (click)="deleteEmployee(updateEmployeeRequest.employeeId)">Sterge</button>
         </div>
 
     </form>

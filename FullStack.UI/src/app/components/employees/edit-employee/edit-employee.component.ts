@@ -18,8 +18,12 @@ export class EditEmployeeComponent implements OnInit {
   // Variabila locala
   departmentsList: Department[] = [];
 
-  // Variabila locala
-  employeeDetails: Employee = {
+  updateDepartmentRequest: Department = {
+    departmentId: "",
+    name: ""
+  }
+  
+  updateEmployeeRequest: Employee = {
 
     // Definirea parametrior stadard pentru un angajat
     employeeId: "",
@@ -27,17 +31,24 @@ export class EditEmployeeComponent implements OnInit {
     email: "",
     phone: "",
     salary: 0,
-    departmentId: "",
-    department: {
-      departmentId: "",
-      name: ""
-    }
-
+    departmentId: this.updateDepartmentRequest.departmentId,
+    department: this.updateDepartmentRequest
   };
+  
 
   // costructor cu variaile de rute
   constructor(private departmentService: DepartmentsService, private route: ActivatedRoute, private employeeService: EmployeesService, private router: Router) {
 
+  }
+
+  // Asignare de valori
+  updateEmployeeDepartment() {
+
+    // 
+    this.updateEmployeeRequest.departmentId = this.updateDepartmentRequest.departmentId;
+
+    // 
+    this.updateEmployeeRequest.department = this.updateDepartmentRequest;
   }
 
   // 
@@ -58,7 +69,7 @@ export class EditEmployeeComponent implements OnInit {
                 console.log(employee)
 
                 // Atribuirea raspunsului in consola
-                this.employeeDetails = employee;
+                this.updateEmployeeRequest = employee;
 
               },
               error: (response) => {
@@ -87,15 +98,15 @@ export class EditEmployeeComponent implements OnInit {
 
   // Modifica Angajat
   updateEmployee() {
-    this.employeeService.updateEmployee(this.employeeDetails.employeeId, this.employeeDetails)
+    this.employeeService.updateEmployee(this.updateEmployeeRequest.employeeId, this.updateEmployeeRequest)
       .subscribe({
         next: (response) => {
 
+          // Afisarea in consola a Raspunsului
+          console.log(response)
+
           //Redirectionare catre pagina cu toti angajatii
           this.router.navigate(["employees"])
-
-          // Afisarea in consola a Raspunsului
-          // console.log(response)
         },
         error: (response) => {
 
