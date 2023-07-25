@@ -17,8 +17,8 @@ export class AppComponent {
 
   // Variabila locala
   roleAddRequest: Role = {
-    roleId: "",
-    name: ""
+    roleId: "4a4eb9df-217c-4d62-bc71-64ccb6e629d8",
+    name: "Cititor"
   }
 
   // Variabila locala
@@ -54,6 +54,9 @@ export class AppComponent {
       this.userAddRequest['username'] = this.user.name
       this.userAddRequest['nickname'] = this.user.nickname
       this.userAddRequest['picture'] = this.user.picture
+
+      // 
+      console.log(this.userAddRequest)
 
       this.insertUser(this.userAddRequest)
     })

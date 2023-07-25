@@ -3,6 +3,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { User } from 'src/app/models/user.model';
 import { UsersService } from 'src/app/services/users.service';
 import { NgModel, NgForm } from '@angular/forms';
+import { Role } from 'src/app/models/role.model';
+import { RolesService } from 'src/app/services/roles.service';
 
 @Component({
   selector: 'app-edit-user',
@@ -13,18 +15,39 @@ import { NgModel, NgForm } from '@angular/forms';
 export class EditUserComponent implements OnInit {
 
   // Variabila locala
-  userDetails: User = {
+  rolesList: Role[]= [];
+
+  // Variabila locala
+  updateRoleRequest: Role = {
+    roleId: "",
+    name: ""
+  }
+
+  // Variabila locala
+  updateUserRequest: User = {
     userId: "",
     email: "",
     name: "",
     username: "",
     nickname: "",
-    picture: ""
+    picture: "",
+    roleId: this.updateRoleRequest.roleId,
+    role: this.updateRoleRequest
   }
 
   // costructor cu variaile de rute
-  constructor(private route: ActivatedRoute, private userService: UsersService, private router: Router) {
+  constructor(private roleService: RolesService ,private route: ActivatedRoute, private userService: UsersService, private router: Router) {
     
+  }
+
+  // Asignare de valori
+  updateUserRole() {
+
+    // 
+    this.updateUserRequest.roleId = this.updateRoleRequest.roleId;
+
+    // 
+    this.updateUserRequest.role = this.updateRoleRequest;
   }
 
   // 
@@ -43,7 +66,7 @@ export class EditUserComponent implements OnInit {
               console.log(response)
 
               // Atribuirea raspunsului in consola
-              this.userDetails = response;
+              this.updateUserRequest = response;
             },
             error: (response) => {
 
@@ -54,11 +77,23 @@ export class EditUserComponent implements OnInit {
         }
       }
     })
+
+    // 
+    this.roleService.getAllRoles()
+      .subscribe({
+        next: (roles: any) => {
+          this.rolesList = roles
+          console.log(this.rolesList);
+        },
+        error: (response: any) => {
+          console.log(response);
+        }
+      })
   }
 
   // Modifica Angajat
   updateUser() {
-    this.userService.updateUser(this.userDetails.userId , this.userDetails)
+    this.userService.updateUser(this.updateUserRequest.userId , this.updateUserRequest)
     .subscribe({
       next: (response) => {
 
@@ -78,7 +113,7 @@ export class EditUserComponent implements OnInit {
 
   // Stergerea Angajat
   deleteUser() {
-    this.userService.deleteUser(this.userDetails.userId)
+    this.userService.deleteUser(this.updateUserRequest.userId)
     .subscribe({
       next: (response) => {
 

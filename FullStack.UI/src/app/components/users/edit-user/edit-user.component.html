@@ -56,22 +56,30 @@
         <div class="mb-3">
             <label for="name" class="form-label">Nume</label>
             <input type="text" class="form-control" id="name" name="name" ngModel #name="ngModel" required minlength="3"
-                [(ngModel)]="userDetails.name">
+                [(ngModel)]="updateUserRequest.name">
         </div>
 
         <!-- Field Email -->
         <div class="mb-3">
             <label for="email" class="form-label">Email</label>
             <input type="text" class="form-control" id="email" name="email" aria-describedby="emailHelp" ngModel
-                #email="ngModel" required [(ngModel)]="userDetails.email">
+                #email="ngModel" required [(ngModel)]="updateUserRequest.email">
         </div>
 
-        <!-- Field Parola -->
+        <!-- Field Rol -->
         <!-- <div class="mb-3">
             <label for="password" class="form-label">Parola</label>
             <input type="password" class="form-control" id="password" name="password" ngModel #password="ngModel"
-                required minlength="8" [(ngModel)]="userDetails.password">
+                required minlength="8" [(ngModel)]="updateUserRequest.password">
         </div> -->
+        <div class="mb-3">
+            <label for="department" class="form-label">Rol</label>
+            <select class="form-select" id="department" name="department" required
+            [(ngModel)]="updateRoleRequest" (ngModelChange)="updateUserRole()">
+                <option *ngFor="let role of rolesList" [ngValue]="role">{{role.name}}</option>
+            </select>
+        </div>
+
 
         <div class="d-grid gap-2 d-md-flex justify-content-md-start">
             <!-- Buton Submit -->

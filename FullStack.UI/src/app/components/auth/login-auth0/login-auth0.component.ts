@@ -33,7 +33,12 @@ export class LoginAuth0Component {
     name: "",
     username: "",
     nickname: "",
-    picture: ""
+    picture: "",
+    roleId: "",
+    role: {
+      roleId: "",
+      name: ""
+    }
   }
 
   // Login Redirect Auth 0
