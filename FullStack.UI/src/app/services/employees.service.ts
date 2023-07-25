@@ -17,7 +17,7 @@ export class EmployeesService {
   getAllEmployees(): Observable<Employee[]> {
 
     // 
-    return this.http.get<Employee[]>(this.baseApiURL + "/api/employees");
+    return this.http.get<Employee[]>(this.baseApiURL + "/api/Employees");
   }
 
   // POST un nou angajat in baza de date
@@ -27,27 +27,27 @@ export class EmployeesService {
     addEmployeeRequest.employeeId = "00000000-0000-0000-0000-000000000000"
 
     // 
-    return this.http.post<Employee>(this.baseApiURL + "/api/employees", addEmployeeRequest);
+    return this.http.post<Employee>(this.baseApiURL + "/api/Employees", addEmployeeRequest);
   }
 
   // GET un singur agajat
   getEmployee(id: string): Observable<Employee>{
 
     // 
-    return this.http.get<Employee>(this.baseApiURL + "/api/employees/" + id)
+    return this.http.get<Employee>(this.baseApiURL + "/api/Employees/" + id)
   }
 
   // PUT edit angajat
   updateEmployee(id: string, updateEmployeeRequest: Employee ): Observable<Employee> {
 
     // 
-    return this.http.put<Employee>(this.baseApiURL + "/api/employees/" + id, updateEmployeeRequest)
+    return this.http.put<Employee>(this.baseApiURL + "/api/Employees/" + id, updateEmployeeRequest)
   }
 
   // DELTE angajat
   deleteEmployee(id: string): Observable<Employee> {
 
     // 
-    return this.http.delete<Employee>(this.baseApiURL + "/api/employees/" + id)
+    return this.http.delete<Employee>(this.baseApiURL + "/api/Employees/" + id)
   }
 }

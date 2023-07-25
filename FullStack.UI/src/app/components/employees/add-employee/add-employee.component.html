@@ -116,7 +116,7 @@
         <div class="mb-3">
             <label for="department" class="form-label">Departament</label>
             <select class="form-select" id="department" name="department" required
-            [(ngModel)]="addDepartmentRequest">
+            [(ngModel)]="addDepartmentRequest" (ngModelChange)="updateEmployeeDepartment()">
                 <option *ngFor="let department of departmentsList" [ngValue]="department">{{department.name}}</option>
             </select>
         </div>
@@ -132,6 +132,6 @@
         </div> -->
 
         <!-- Buton Submit -->
-        <button type="submit" class="btn btn-success" (click)="addEmployee()" [disabled]="!form.valid">Salveaza</button>
+        <button type="submit" class="btn btn-success" [disabled]="!form.valid">Salveaza</button>
     </form>
 </div>

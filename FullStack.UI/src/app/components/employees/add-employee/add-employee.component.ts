@@ -38,6 +38,16 @@ export class AddEmployeeComponent implements OnInit{
     
   }
 
+  // Asignare de valori
+  updateEmployeeDepartment() {
+
+    // 
+    this.addEmployeeRequest.departmentId = this.addDepartmentRequest.departmentId;
+
+    // 
+    this.addEmployeeRequest.department = this.addDepartmentRequest;
+  }
+
   //
   ngOnInit(): void {
     
@@ -62,6 +72,10 @@ export class AddEmployeeComponent implements OnInit{
 
   // Adaugare Angajat
   addEmployee() {
+
+    console.log(this.addDepartmentRequest)
+
+    console.log(this.addEmployeeRequest)
 
     // Post catre API la noul angajat
     this.employeeService.addNewEmployee(this.addEmployeeRequest)
