@@ -23,6 +23,10 @@ import { DepartmentsListComponent } from './components/departments/departments-l
 import { AddDepartmentComponent } from './components/departments/add-department/add-department.component';
 import { EditDepartmentComponent } from './components/departments/edit-department/edit-department.component';
 import { DetailsDepartmentComponent } from './components/departments/details-department/details-department.component';
+import { AddRoleComponent } from './components/roles/add-role/add-role.component';
+import { RolesListComponent } from './components/roles/roles-list/roles-list.component';
+import { DetailsRoleComponent } from './components/roles/details-role/details-role.component';
+import { EditRoleComponent } from './components/roles/edit-role/edit-role.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +44,10 @@ import { DetailsDepartmentComponent } from './components/departments/details-dep
     AddDepartmentComponent,
     EditDepartmentComponent,
     DetailsDepartmentComponent,
+    AddRoleComponent,
+    RolesListComponent,
+    DetailsRoleComponent,
+    EditRoleComponent,
   ],
   imports: [
     BrowserModule,
