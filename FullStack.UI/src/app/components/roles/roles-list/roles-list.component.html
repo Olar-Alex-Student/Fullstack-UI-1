@@ -1,1 +1,36 @@
-<p>roles-list works!</p>
+<!-- Container Pagina Angajati -->
+<div class="container p-4">
+    
+    <!-- H1 Titlu Pagina -->
+    <h1>
+        Roluri
+    </h1>
+    
+    <!-- Tabel Agajati -->
+    <table class="table table-light table-striped" *ngIf = "roles && roles.length > 0 ">
+        <!-- Head -->
+        <thead>
+            <tr>
+              <th scope="col">Id</th>
+              <th scope="col">Nume</th>
+              <th scope="col">Edit</th>
+              <th scope="col">More</th>
+            </tr>
+        </thead>
+
+        <!-- Body -->
+        <tbody>
+            <tr *ngFor="let role of roles" >
+              <td>{{role.roleId}}</td>
+              <td>{{role.name}}</td>
+              <td><a [routerLink]="['/roles','edit', role.roleId]">Edit</a></td>
+              <td><a [routerLink]="['/roles','view', role.roleId]">View</a></td>
+            </tr>
+          </tbody>
+    </table>
+    
+    <!-- If Daca Nu Exista Angajati -->
+    <p *ngIf = "!roles || roles.length <= 0">
+        Niciun departament gasit
+    </p>
+</div>

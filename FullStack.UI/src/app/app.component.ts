@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { AuthService, User } from '@auth0/auth0-angular';
 import { UsersService } from './services/users.service';
 import { Auth0Service } from './services/auth0.service';
+import { Role } from './models/role.model';
 
 @Component({
   selector: 'app-root',
@@ -15,13 +16,21 @@ export class AppComponent {
   user: any
 
   // Variabila locala
+  roleAddRequest: Role = {
+    roleId: "",
+    name: ""
+  }
+
+  // Variabila locala
   userAddRequest: User = {
     userId: "",
     email: "",
     name: "",
     username: "",
     nickname: "",
-    picture: ""
+    picture: "",
+    roleId: this.roleAddRequest.roleId,
+    role: this.roleAddRequest
   }
 
   constructor(public authService: AuthService, public userService: UsersService, public auth0Service: Auth0Service) {
@@ -30,6 +39,12 @@ export class AppComponent {
     this.auth0Service.getUserData().subscribe(user => {
       this.user = user
       console.log(user)
+
+      // 
+      this.userAddRequest['roleId'] = this.roleAddRequest.roleId;
+
+      // 
+      this.userAddRequest['role'] = this.roleAddRequest;
 
       // Atribire de valori
 
