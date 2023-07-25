@@ -9,7 +9,7 @@ import { Auth0Service } from './services/auth0.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'FullStack.UI';
+  title = 'GlocalSoft';
 
   // Definire user care preia datele di Auth0
   user: any

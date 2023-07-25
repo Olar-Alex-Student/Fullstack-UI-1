@@ -33,6 +33,16 @@
             <a *ngIf="(authService.isAuthenticated$ | async)" class="nav-link active" aria-current="page" routerLink="departments/add">Adauga Departamente</a>
           </li>
 
+          <!-- Link Pt. Vizulaizare Roluri -->
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" routerLink="roles">Roluri</a>
+          </li>
+
+          <!-- Link Pt. Vizulaizare Adaugare Roluri -->
+          <li class="nav-item">
+            <a *ngIf="(authService.isAuthenticated$ | async)" class="nav-link active" aria-current="page" routerLink="roles/add">Adauga Roluri</a>
+          </li>
+
         </ul>
       </div>
 

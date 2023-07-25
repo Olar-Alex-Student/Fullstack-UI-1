@@ -16,6 +16,10 @@ import { DepartmentsListComponent } from './components/departments/departments-l
 import { AddDepartmentComponent } from './components/departments/add-department/add-department.component';
 import { EditDepartmentComponent } from './components/departments/edit-department/edit-department.component';
 import { DetailsDepartmentComponent } from './components/departments/details-department/details-department.component';
+import { RolesListComponent } from './components/roles/roles-list/roles-list.component';
+import { AddRoleComponent } from './components/roles/add-role/add-role.component';
+import { EditRoleComponent } from './components/roles/edit-role/edit-role.component';
+import { DetailsRoleComponent } from './components/roles/details-role/details-role.component';
 
 const routes: Routes = [
 
@@ -81,6 +85,28 @@ const routes: Routes = [
   {
     path: 'departments/view/:id',
     component: DetailsDepartmentComponent,
+    canActivate: [AuthGuard]
+  },
+
+  // Rute Roluri
+  {
+    path: 'roles',
+    component: RolesListComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'roles/add',
+    component: AddRoleComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'roles/edit/:id',
+    component: EditRoleComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'roles/view/:id',
+    component: DetailsRoleComponent,
     canActivate: [AuthGuard]
   },
 ];
