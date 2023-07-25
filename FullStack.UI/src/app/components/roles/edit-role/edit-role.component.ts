@@ -12,6 +12,7 @@ import { RolesService } from 'src/app/services/roles.service';
   styleUrls: ['./edit-role.component.css']
 })
 export class EditRoleComponent implements OnInit {
+  
   // Variabila locala
   roleDetails: Role = {
     roleId: "",
@@ -62,7 +63,7 @@ export class EditRoleComponent implements OnInit {
           console.log(response)
 
           //Redirectionare catre pagina cu toti angajatii
-          this.router.navigate(["Role"])
+          this.router.navigate(["roles"])
 
         },
         error: (response) => {
@@ -80,7 +81,7 @@ export class EditRoleComponent implements OnInit {
         next: (response) => {
 
           //Redirectionare catre pagina cu toti angajatii
-          this.router.navigate(["Role"])
+          this.router.navigate(["roles"])
 
           // Afisarea in consola a Raspunsului
           // console.log(response)
