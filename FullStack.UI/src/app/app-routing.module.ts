@@ -20,6 +20,7 @@ import { RolesListComponent } from './components/roles/roles-list/roles-list.com
 import { AddRoleComponent } from './components/roles/add-role/add-role.component';
 import { EditRoleComponent } from './components/roles/edit-role/edit-role.component';
 import { DetailsRoleComponent } from './components/roles/details-role/details-role.component';
+import { MyGuard } from './guard/roles.guard';
 
 const routes: Routes = [
 
@@ -41,73 +42,112 @@ const routes: Routes = [
   {
     path: 'users',
     component: UsersListComponent,
-    canActivate: [AuthGuard]
+    canActivate: [AuthGuard, MyGuard],
+    data: {
+      expectedRole: ['Alex Olar']
+    }
   },
   {
     path: 'users/edit/:userId',
     component: EditUserComponent,
-    canActivate: [AuthGuard]
+    canActivate: [AuthGuard, MyGuard],
+    data: {
+      expectedRole: ['Alex Olar']
+    }
   },
 
   // Rute Angajati
   {
     path: 'employees',
     component: EmployeesListComponent,
-    canActivate: [AuthGuard]
+    canActivate: [AuthGuard, MyGuard],
+    data: {
+      expectedRole: ['Alex Olar']
+    }
   },
   {
     path: 'employees/add',
     component: AddEmployeeComponent,
-    canActivate: [AuthGuard]
+    canActivate: [AuthGuard, MyGuard],
+    data: {
+      expectedRole: ['Alex Olar']
+    }
   },
   {
     path: 'employees/edit/:id',
     component: EditEmployeeComponent,
-    canActivate: [AuthGuard]
+    canActivate: [AuthGuard, MyGuard],
+    data: {
+      expectedRole: ['Alex Olar']
+    }
   },
 
   // Rute Departamente
   {
     path: 'departments',
     component: DepartmentsListComponent,
-    canActivate: [AuthGuard]
+    canActivate: [AuthGuard, MyGuard],
+    data: {
+      expectedRole: ['Alex Olar']
+    }
   },
   {
     path: 'departments/add',
     component: AddDepartmentComponent,
-    canActivate: [AuthGuard]
+    canActivate: [AuthGuard, MyGuard],
+    data: {
+      expectedRole: ['Alex Olar']
+    }
   },
   {
     path: 'departments/edit/:id',
     component: EditDepartmentComponent,
-    canActivate: [AuthGuard]
+    canActivate: [AuthGuard, MyGuard],
+    data: {
+      expectedRole: ['Alex Olar']
+    }
   },
   {
     path: 'departments/view/:id',
     component: DetailsDepartmentComponent,
-    canActivate: [AuthGuard]
+    canActivate: [AuthGuard, MyGuard],
+    data: {
+      expectedRole: ['Alex Olar']
+    }
   },
 
   // Rute Roluri
   {
     path: 'roles',
     component: RolesListComponent,
-    canActivate: [AuthGuard]
+    canActivate: [AuthGuard, MyGuard],
+    data: {
+      expectedRole: ['Alex Olar']
+    }
   },
   {
     path: 'roles/add',
     component: AddRoleComponent,
-    canActivate: [AuthGuard]
+    canActivate: [AuthGuard, MyGuard],
+    data: {
+      expectedRole: ['Alex Olar']
+    }
   },
   {
     path: 'roles/edit/:id',
     component: EditRoleComponent,
-    canActivate: [AuthGuard]
+    canActivate: [AuthGuard, MyGuard],
+    data: {
+      expectedRole: ['Alex Olar']
+    }
   },
   {
     path: 'roles/view/:id',
     component: DetailsRoleComponent,
-    canActivate: [AuthGuard]
+    canActivate: [AuthGuard, MyGuard],
+    data: {
+      expectedRole: ['Alex Olar']
+    }
   },
 ];
 

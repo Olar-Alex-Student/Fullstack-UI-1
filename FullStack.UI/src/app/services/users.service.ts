@@ -62,6 +62,15 @@ export class UsersService {
     }})
   }
 
+  getUserByEmail(userEmail: string): Observable<User> {
+
+    // 
+    return this.http.get<User>(this.baseApiURL + "/api/Users/" + "byemail",
+    {params: {
+      "email": userEmail,
+    }})
+  }
+
   // GET date utilizator din sesiunea curenta
   getData(): any {
     this.auth.user$.subscribe((user: any) => {

@@ -1,5 +1,3 @@
-import { domain, clientId } from '../../auth-config.json'
-
 export const environment = {
     production: false,
     apiUrl: 'https://localhost:7090',
